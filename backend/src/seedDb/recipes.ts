@@ -1,7 +1,7 @@
 export const mockRecipesData = [
   {
     likedRecipe: false,
-    imgUrl: "",
+    imgUrl: "bild",
     name: "kladdkaka",
     bakingTime: "20 minuter",
     description: {
@@ -22,7 +22,7 @@ export const mockRecipesData = [
   },
   {
     likedRecipe: false,
-    imgUrl: "",
+    imgUrl: "Bild",
     name: "muffins",
     bakingTime: "20 minuter",
     description: {
@@ -43,7 +43,7 @@ export const mockRecipesData = [
   },
   {
     likedRecipe: false,
-    imgUrl: "",
+    imgUrl: "bild",
     name: "kanelbullar",
     bakingTime: "20 minuter",
     description: {

@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import express from "express";
 import mongoose from "mongoose";
-import recipeRoutes from "./routes/recipeRoutes";
+import recipeRoutes from "./src/routes/recipeRoutes";
 import cors from "cors";
 
 const app = express();
