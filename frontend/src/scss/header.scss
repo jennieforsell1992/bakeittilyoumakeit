@@ -1,64 +1,35 @@
 @use "mixins" as mix;
-$hamburger-color: #333;
-$hamburger-size: 30px;
-$hamburger-bar-height: 4px;
 
-.hamburger-menu {
-  .hamburger-icon {
-    width: $hamburger-size;
-    height: $hamburger-size;
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .header-wrapper {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
+    flex-direction: row;
+    justify-content: end;
+    margin: 20px;
+    gap: 15px;
 
-    .bar {
-      width: 100%;
-      height: $hamburger-bar-height;
-      background-color: $hamburger-color;
-      transition: 0.3s;
+    @include mix.desktop {
+      align-items: center;
+    }
 
-      &:nth-child(2) {
-        /* Justera avståndet mellan de tre linjerna */
-        margin: 4px 0;
+    @include mix.desktop {
+      .links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 50vw;
+        gap: 50px;
+
+        .li-item {
+          border: solid 2px lightgrey;
+          border-radius: 20px;
+          padding: 10px;
+        }
       }
-    }
-  }
-
-  /* Animerad effekt när hamburgerikonen klickas på */
-  &.open {
-    .bar:nth-child(1) {
-      transform: rotate(-45deg) translate(-12px, 6px);
-    }
-
-    .bar:nth-child(2) {
-      opacity: 0;
-    }
-
-    .bar:nth-child(3) {
-      transform: rotate(45deg) translate(-12px, -6px);
-    }
-
-    .links {
-      display: block;
-    }
-  }
-
-  @include mix.desktop {
-    .links {
-      display: block;
-    }
-
-    .hamburger-icon {
-      display: none;
-    }
-  }
-
-  @include mix.mobile {
-    display: block;
-
-    .links {
-      display: none;
     }
   }
 }
