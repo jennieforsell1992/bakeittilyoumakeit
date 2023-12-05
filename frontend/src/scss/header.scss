@@ -1,0 +1,64 @@
+@use "mixins" as mix;
+$hamburger-color: #333;
+$hamburger-size: 30px;
+$hamburger-bar-height: 4px;
+
+.hamburger-menu {
+  .hamburger-icon {
+    width: $hamburger-size;
+    height: $hamburger-size;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+
+    .bar {
+      width: 100%;
+      height: $hamburger-bar-height;
+      background-color: $hamburger-color;
+      transition: 0.3s;
+
+      &:nth-child(2) {
+        /* Justera avståndet mellan de tre linjerna */
+        margin: 4px 0;
+      }
+    }
+  }
+
+  /* Animerad effekt när hamburgerikonen klickas på */
+  &.open {
+    .bar:nth-child(1) {
+      transform: rotate(-45deg) translate(-12px, 6px);
+    }
+
+    .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .bar:nth-child(3) {
+      transform: rotate(45deg) translate(-12px, -6px);
+    }
+
+    .links {
+      display: block;
+    }
+  }
+
+  @include mix.desktop {
+    .links {
+      display: block;
+    }
+
+    .hamburger-icon {
+      display: none;
+    }
+  }
+
+  @include mix.mobile {
+    display: block;
+
+    .links {
+      display: none;
+    }
+  }
+}
