@@ -2,7 +2,7 @@ import { IRecipe } from "../models/IRecipe";
 
 export interface IAction {
   type: ActionType;
-  payload: string;
+  payload: any;
 }
 
 export enum ActionType {
