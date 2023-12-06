@@ -1,20 +1,24 @@
 @use "variables" as var;
+@use "mixins" as mix;
 .footer {
   display: flex;
   justify-content: left;
   background-color: var.$primary-color;
   width: 100vw;
   margin-top: auto;
-}
 
-.wrapper-contacts {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  padding: 10px;
-}
+  @include mix.desktop {
+    justify-content: center;
+  }
 
-.contact-text {
-  margin: 4px 0;
-  font-size: x-small;
+  .wrapper-contacts {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 10px;
+    .contact-text {
+      margin: 4px 0;
+      font-size: x-small;
+    }
+  }
 }
