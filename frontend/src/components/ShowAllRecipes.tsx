@@ -11,22 +11,17 @@ export const ShowAllRecipes = () => {
 
   const showAllRecipes = allRecipes.map((res, index) => {
     return (
-      <div key={index}>
-        <p>{res.name}</p>
-        <p>{res.allIngredients.IngredientOne}</p>
-        <p>{res.description.descriptionOne}</p>
-        <img src={res.imgUrl} alt={res.name} />
+      <div className="allRecipe-wrapper" key={index}>
+        <div>
+          <img src={res.imgUrl} alt={res.name} />
+        </div>
+        <div>
+          <p className="allRecipe-wrapper__name">{res.name}</p>
+          <p className="allRecipe-wrapper__name">{res.bakingTime}</p>
+        </div>
       </div>
     );
   });
-
-  //   const showAllBookings = () =>{
-  //     dispatch({
-  //         type: ActionType.GOTALLRECIPES,
-  //         payload:
-
-  //     })
-  //   }
 
   return <div>{showAllRecipes}</div>;
 };

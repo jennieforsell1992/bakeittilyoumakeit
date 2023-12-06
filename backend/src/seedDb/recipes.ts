@@ -64,4 +64,27 @@ export const mockRecipesData = [
       IngredientSeven: "2tsk vaniljsocker",
     },
   },
+  {
+    likedRecipe: false,
+    imgUrl: "bild",
+    name: "Hallongrotter",
+    bakingTime: "20 minuter",
+    description: {
+      descriptionOne: "sätt på ugnen på 300grader",
+      descriptionTwo: "blanda ihop alla ingredientser",
+      descriptionThree: "lägg allting i en form",
+      descriptionFour: "grädda i ugnen 20 minuter",
+      descriptionFive: "ta ut och låt den svalna",
+      descriptionSix: "servera med grädde, hallon eller valfritt tillbehör",
+    },
+    allIngredients: {
+      IngredientOne: "2dl mjöl",
+      IngredientTwo: "3dl mjölk",
+      IngredientThree: "3msk kakao",
+      IngredientFour: "100gram smör",
+      IngredientFive: "2tsk vaniljsocker",
+      IngredientSix: "100gram smör",
+      IngredientSeven: "2tsk vaniljsocker",
+    },
+  },
 ];

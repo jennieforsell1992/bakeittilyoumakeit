@@ -1,0 +1,44 @@
+@use "mixins" as mix;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 3px solid lightgray;
+  @include mix.desktop {
+    margin-top: 15px;
+  }
+
+  .header-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin: 20px;
+    gap: 15px;
+
+    @include mix.desktop {
+      align-items: center;
+      position: relative;
+      top: 0;
+      margin-top: -5px;
+      margin-right: 0;
+    }
+
+    @include mix.desktop {
+      .links {
+        position: sticky;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 30px;
+        top: 0;
+
+        .li-item {
+          border: solid 2px lightgrey;
+          border-radius: 20px;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
