@@ -1,0 +1,89 @@
+@use "mixins" as mix;
+@use "variables" as var;
+
+.allRecipe-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  .allRecipe-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid lightgray;
+    padding: 60px;
+    border-radius: 20px;
+    width: 50%;
+    box-shadow: 1px 1px 2px 0 lightgray;
+
+    .allRecipe-wrapper-img {
+      display: flex;
+
+      .allRecipe-img {
+      }
+    }
+
+    .allRecipe-wrapper-nameWrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: last baseline;
+      gap: 10px;
+      .allRecipe-name {
+      }
+
+      .allRecipe-bakingTime {
+      }
+
+      .icon-wrapper-allRecipes {
+        .material-symbols-outlined {
+          &.liked {
+            color: red;
+          }
+        }
+      }
+    }
+  }
+}
+
+.sort-button-wrapper {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+
+  .sort-button-text {
+    background-color: var.$secondary-color;
+    border: var.$secondary-color;
+    :hover {
+      background-color: var.$box-color;
+    }
+  }
+}
+
+.sort-button-options-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .sort-buttons-options {
+    background-color: var.$secondary-color;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 10px;
+    border-radius: 8px;
+    .sort-button-options-a {
+      background-color: var.$box-color;
+    }
+
+    .sort-button-options-b {
+      background-color: var.$box-color;
+    }
+  }
+}

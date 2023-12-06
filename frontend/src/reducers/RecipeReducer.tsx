@@ -8,6 +8,7 @@ export interface IAction {
 export enum ActionType {
   GOTALLRECIPES,
   CREATENEWRECIPE,
+  TOGGLEHEART,
 }
 
 export const RecipeReducer = (state: IRecipe[], action: IAction) => {
@@ -17,6 +18,23 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
     }
     case ActionType.CREATENEWRECIPE: {
       return;
+    }
+    case ActionType.TOGGLEHEART: {
+      return state.map((recipe) => {
+        console.log(action.payload);
+        if (recipe._id === action.payload) {
+          return {
+            ...state,
+            _id: recipe._id,
+            name: recipe.name,
+            bakingTime: recipe.bakingTime,
+            imgUrl: recipe.imgUrl,
+            likedRecipe: !recipe.likedRecipe,
+          };
+        } else {
+          return recipe;
+        }
+      });
     }
     default:
       break;
