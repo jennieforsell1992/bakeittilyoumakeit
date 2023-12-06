@@ -30,17 +30,14 @@ $hamburger-bar-height: 4px;
 
   .links {
     position: fixed;
-    top: 40px;
+    top: 55px;
     right: 0;
     list-style: none;
     background-color: white;
     display: none;
     z-index: 1000;
-
     border-radius: 20px;
     padding: 10px;
-
-    // ... övriga stilmallar för länkarna
   }
 
   /* Animerad effekt när hamburgerikonen klickas på */
