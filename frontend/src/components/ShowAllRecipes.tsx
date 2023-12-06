@@ -9,11 +9,7 @@ export const ShowAllRecipes = () => {
   const dispatch = useContext(RecipeDispatchContext);
 
   const [isLiked, setIsLiked] = useState(false);
-
-  const likedHeartToggle = () => {
-    setIsLiked(!isLiked);
-    console.log(isLiked);
-  };
+  const [showSort, setShowSort] = useState(false);
 
   const handleClickHeart = (id: string) => {
     setIsLiked(!isLiked);
@@ -22,6 +18,46 @@ export const ShowAllRecipes = () => {
     dispatch({
       type: ActionType.TOGGLEHEART,
       payload: id,
+    });
+  };
+
+  const sortRecipesA = () => {
+    const sortData = [...allRecipes].sort((a, b) => {
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+
+    dispatch({
+      type: ActionType.GOTALLRECIPES,
+      payload: JSON.stringify(sortData),
+    });
+  };
+
+  const sortRecipesB = () => {
+    const sortData = [...allRecipes].sort((a, b) => {
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+
+      if (nameA < nameB) {
+        return 1;
+      }
+      if (nameA > nameB) {
+        return -1;
+      }
+      return 0;
+    });
+
+    dispatch({
+      type: ActionType.GOTALLRECIPES,
+      payload: JSON.stringify(sortData),
     });
   };
 
@@ -57,5 +93,31 @@ export const ShowAllRecipes = () => {
     );
   });
 
-  return <div className="allRecipe-container">{showAllRecipes}</div>;
+  return (
+    <>
+      <div className="sort-button-wrapper">
+        <button
+          className="sort-button-text"
+          onClick={() => {
+            setShowSort(!showSort);
+          }}
+        >
+          Sortera recept
+        </button>
+      </div>
+      {showSort ? (
+        <div className="sort-button-options-wrapper">
+          <div className="sort-buttons-options">
+            <button className="sort-button-options-a" onClick={sortRecipesA}>
+              a-ö
+            </button>
+            <button className="sort-button-options-b" onClick={sortRecipesB}>
+              ö-a
+            </button>
+          </div>
+        </div>
+      ) : null}
+      <div className="allRecipe-container">{showAllRecipes}</div>
+    </>
+  );
 };
