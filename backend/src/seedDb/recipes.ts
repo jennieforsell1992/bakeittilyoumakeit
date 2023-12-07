@@ -19,10 +19,13 @@ export const mockRecipesData = [
       IngredientFour: "100gram smör",
       IngredientFive: "2tsk vaniljsocker",
     },
+    image: {
+      filename: "hej",
+      path: "hej",
+    },
   },
   {
     likedRecipe: false,
-    imgUrl: "Bild",
     name: "muffins",
     bakingTime: "20 minuter",
     description: {
@@ -40,10 +43,13 @@ export const mockRecipesData = [
       IngredientFour: "100gram smör",
       IngredientFive: "2tsk vaniljsocker",
     },
+    image: {
+      filename: "hej",
+      path: "hej",
+    },
   },
   {
     likedRecipe: false,
-    imgUrl: "bild",
     name: "kanelbullar",
     bakingTime: "20 minuter",
     description: {
@@ -63,10 +69,13 @@ export const mockRecipesData = [
       IngredientSix: "100gram smör",
       IngredientSeven: "2tsk vaniljsocker",
     },
+    image: {
+      filename: "hej",
+      path: "hej",
+    },
   },
   {
     likedRecipe: false,
-    imgUrl: "bild",
     name: "Hallongrotter",
     bakingTime: "20 minuter",
     description: {
@@ -85,6 +94,10 @@ export const mockRecipesData = [
       IngredientFive: "2tsk vaniljsocker",
       IngredientSix: "100gram smör",
       IngredientSeven: "2tsk vaniljsocker",
+    },
+    image: {
+      filename: "hej",
+      path: "hej",
     },
   },
 ];
