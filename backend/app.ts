@@ -4,6 +4,8 @@ import express from "express";
 import mongoose from "mongoose";
 import recipeRoutes from "./src/routes/recipeRoutes";
 import cors from "cors";
+import multer from "multer";
+import uploadMulterMiddleware from "./src/middleware/multer";
 
 const app = express();
 
@@ -33,10 +35,11 @@ app.use((req, res) => {
 });
 
 const port = process.env.PORT || 5000;
+const mongoDbUrl = process.env.MONGODB_URI;
 async function run() {
   try {
     mongoose.set("strictQuery", false);
-    const conn = await mongoose.connect(process.env.MONGODB_URI || "");
+    const conn = await mongoose.connect(mongoDbUrl || "");
 
     app.listen(port, () => {
       console.log(`server running on http://localhost:${port}`);
