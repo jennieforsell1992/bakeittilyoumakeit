@@ -1,5 +1,3 @@
-import PastryPic from "../../../public/pastry.png";
-
 export const Home = () => {
   return (
     <div>
@@ -18,11 +16,7 @@ export const Home = () => {
           </span>
         </div>
         <div className="front-recipe-container">
-          <img
-            className="front-recipe-img"
-            src={PastryPic}
-            alt="bild på kaka"
-          />
+          <img className="front-recipe-img" src="" alt="bild på kaka" />
         </div>
       </section>
     </div>

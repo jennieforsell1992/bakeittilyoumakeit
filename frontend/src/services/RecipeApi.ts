@@ -9,7 +9,7 @@ export const getAllRecipes = async () => {
   return response.data;
 };
 
-export const createNewRecipe = async (recipe: IRecipe): Promise<IRecipe> => {
+export const createNewRecipe = async (recipe: FormData): Promise<IRecipe> => {
   console.log(recipe);
   const response = await axios.post<IRecipe>(
     "http://localhost:4000/api/v1/recipe",

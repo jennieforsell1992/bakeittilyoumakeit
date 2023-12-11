@@ -2,6 +2,7 @@ import { RequestHandler } from "express";
 import { Recipe } from "../models/IRecipe";
 
 export const createNewRecipe: RequestHandler = async (req, res, next) => {
+  console.log("create new recipe ", req.file);
   try {
     const { likedRecipe, name, bakingTime, description, allIngredients } =
       req.body;
