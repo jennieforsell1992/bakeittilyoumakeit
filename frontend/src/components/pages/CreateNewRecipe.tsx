@@ -1,3 +1,10 @@
+import { FormRecipe } from "../FormRecipe";
+
 export const CreateNewRecipe = () => {
-  return <p>skapa nytt recept</p>;
+  return (
+    <>
+      <p> Skapa nytt recept</p>
+      <FormRecipe />
+    </>
+  );
 };
