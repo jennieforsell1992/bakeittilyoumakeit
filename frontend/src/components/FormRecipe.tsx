@@ -1,12 +1,12 @@
-import { ChangeEvent, FormEvent, useContext, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { IRecipe } from "../models/IRecipe";
-import { ActionType } from "../reducers/RecipeReducer";
-import { RecipeDispatchContext } from "../contexts/RecipeDispatchContext";
-import { createNewRecipe } from "../services/RecipeApi";
+// import { ActionType } from "../reducers/RecipeReducer";
+// import { RecipeDispatchContext } from "../contexts/RecipeDispatchContext";
+// import { createNewRecipe } from "../services/RecipeApi";
 import axios from "axios";
 
 export const FormRecipe = () => {
-  const dispatch = useContext(RecipeDispatchContext);
+  // const dispatch = useContext(RecipeDispatchContext);
 
   const [newRecipe, setNewRecipe] = useState<IRecipe>({
     _id: "",
@@ -54,75 +54,36 @@ export const FormRecipe = () => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("_id", newRecipe._id);
-    formData.append("name", newRecipe.name);
-    formData.append("bakingTime", newRecipe.bakingTime);
+    formData.append("_id", newRecipe._id || "");
+    formData.append("name", newRecipe.name || "");
+    formData.append("bakingTime", newRecipe.bakingTime || "");
 
-    formData.append("likedRecipe", String(newRecipe.likedRecipe));
+    formData.append("likedRecipe", newRecipe.likedRecipe.toString() || "");
 
-    formData.append("imgUrl", newRecipe.imgUrl);
+    formData.append("imgUrl", newRecipe.imgUrl || "");
 
-    Object.entries(newRecipe.description).forEach(([desc, value]) => {
-      formData.append(`description[${desc}]`, value);
-    });
+    // Object.entries(newRecipe.description).forEach(([desc, value]) => {
+    //   formData.append(`description[${desc}]`, value);
+    // });
 
-    Object.entries(newRecipe.allIngredients).forEach(([ing, value]) => {
-      formData.append(`allIngredients[${ing}]`, value);
-    });
+    // Object.entries(newRecipe.allIngredients).forEach(([ing, value]) => {
+    //   formData.append(`allIngredients[${ing}]`, value);
+    // });
+    console.log(formData.values);
+    console.log(formData);
 
-    dispatch({ type: ActionType.CREATENEWRECIPE, payload: newRecipe });
-    createNewRecipe(formData);
+    // dispatch({ type: ActionType.CREATENEWRECIPE, payload: formData });
+    // console.log(newRecipe);
+    // createNewRecipe(formData);
 
-    // await axios
-    //   .post<IRecipe>("http://localhost:4000/api/v1/recipe", formData)
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-
-    setNewRecipe({
-      _id: "",
-      likedRecipe: false,
-      imgUrl: "",
-      name: "",
-      bakingTime: "",
-      description: {
-        descriptionOne: "",
-        descriptionTwo: "",
-        descriptionThree: "",
-        descriptionFour: "",
-        descriptionFive: "",
-        descriptionSix: "",
-        descriptionSeven: "",
-        descriptionEight: "",
-        descriptionNine: "",
-        descriptionTen: "",
-        descriptionEleven: "",
-        descriptionTwelve: "",
-        descriptionThirteen: "",
-        descriptionFourteen: "",
-        descriptionFifteen: "",
-        descriptionSixteen: "",
-      },
-      allIngredients: {
-        IngredientOne: "",
-        IngredientTwo: "",
-        IngredientThree: "",
-        IngredientFour: "",
-        IngredientFive: "",
-        IngredientSix: "",
-        IngredientSeven: "",
-        IngredientEight: "",
-        IngredientNine: "",
-        IngredientTen: "",
-        IngredientEleven: "",
-        IngredientTwelve: "",
-        IngredientThirteen: "",
-        IngredientFourteen: "",
-      },
-    });
+    await axios
+      .post<IRecipe>("http://localhost:4000/api/v1/recipe", formData)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const handleChangeRecipe = (e: ChangeEvent<HTMLInputElement>) => {
@@ -161,7 +122,7 @@ export const FormRecipe = () => {
           name="imgUrl"
           // accept=".png, .jpg"
           // value={newRecipe.imgUrl}
-          onChange={handleImage}
+          onChange={(e) => handleImage(e)}
         />
         <input
           type="text"
