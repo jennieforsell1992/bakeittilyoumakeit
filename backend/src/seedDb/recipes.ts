@@ -1,7 +1,7 @@
 export const mockRecipesData = [
   {
     likedRecipe: false,
-    imgUrl: "bild",
+    imgUrl: "../../public/uploads/imgUrl-1702285391215.jpg",
     name: "kladdkaka",
     bakingTime: "20 minuter",
     description: {
@@ -19,14 +19,10 @@ export const mockRecipesData = [
       IngredientFour: "100gram smör",
       IngredientFive: "2tsk vaniljsocker",
     },
-    // image: {
-    //   filename: "hej",
-    //   path: "hej",
-    // },
   },
   {
     likedRecipe: false,
-    imgUrl: "bild",
+    imgUrl: "../../public/uploads/imgUrl-1702295169721.jpg",
     name: "muffins",
     bakingTime: "20 minuter",
     description: {
@@ -44,14 +40,10 @@ export const mockRecipesData = [
       IngredientFour: "100gram smör",
       IngredientFive: "2tsk vaniljsocker",
     },
-    // image: {
-    //   filename: "hej",
-    //   path: "hej",
-    // },
   },
   {
     likedRecipe: false,
-    imgUrl: "bild",
+    imgUrl: "../../public/uploads/imgUrl-1702295841413.jpg",
     name: "kanelbullar",
     bakingTime: "20 minuter",
     description: {
@@ -71,10 +63,6 @@ export const mockRecipesData = [
       IngredientSix: "100gram smör",
       IngredientSeven: "2tsk vaniljsocker",
     },
-    // image: {
-    //   filename: "hej",
-    //   path: "hej",
-    // },
   },
   {
     likedRecipe: false,
@@ -98,9 +86,5 @@ export const mockRecipesData = [
       IngredientSix: "100gram smör",
       IngredientSeven: "2tsk vaniljsocker",
     },
-    // image: {
-    //   filename: "hej",
-    //   path: "hej",
-    // },
   },
 ];
