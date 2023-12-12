@@ -1,17 +1,23 @@
 import { RequestHandler } from "express";
 import { Recipe } from "../models/IRecipe";
+import dotenv from "dotenv";
+dotenv.config();
+
+const cloudinary = require("cloudinary").v2;
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
+});
 
 export const createNewRecipe: RequestHandler = async (req, res, next) => {
   console.log("create new recipe ", req.file);
+
   try {
     const { likedRecipe, name, bakingTime, description, allIngredients } =
       req.body;
 
-    const image = req.file?.filename;
-
-    if (!image) {
-      return res.status(400).json("Image upload is required");
-    }
+    const image = req.file?.path;
 
     const newRecipe = await Recipe.create({
       likedRecipe: likedRecipe,
@@ -21,6 +27,11 @@ export const createNewRecipe: RequestHandler = async (req, res, next) => {
       description: description,
       allIngredients: allIngredients,
     });
+    if (req.file) {
+      const imageToCloudinary = await cloudinary.uploader.upload(
+        req.file?.path
+      );
+    }
 
     return res.status(201).json(newRecipe);
   } catch (error) {
