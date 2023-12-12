@@ -5,7 +5,6 @@ import mongoose from "mongoose";
 import recipeRoutes from "./src/routes/recipeRoutes";
 import cors from "cors";
 import multer from "multer";
-import uploadMulterMiddleware from "./src/middleware/multer";
 
 const app = express();
 
