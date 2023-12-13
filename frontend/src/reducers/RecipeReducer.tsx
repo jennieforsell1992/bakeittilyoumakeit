@@ -8,6 +8,7 @@ export interface IAction {
 export enum ActionType {
   GOTALLRECIPES,
   CREATENEWRECIPE,
+  GOTONERECIPE,
   TOGGLEHEART,
 }
 
@@ -16,6 +17,7 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
     case ActionType.GOTALLRECIPES: {
       return JSON.parse(action.payload);
     }
+
     case ActionType.CREATENEWRECIPE: {
       const newRecipe: IRecipe = {
         _id: action.payload._id,
