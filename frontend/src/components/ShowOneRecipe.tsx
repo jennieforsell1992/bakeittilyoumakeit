@@ -14,10 +14,11 @@ export const ShowOneRecipe = () => {
     if (rec._id === id) {
       return (
         <article>
+          <img src={rec.imgUrl} alt={rec.name} />
           <p>{rec.name}</p>
           <p>{rec.bakingTime}</p>
-          <img src={rec.imgUrl} alt={rec.name} />
-          <p>{rec.description.descriptionEight}</p>
+
+          <p>{rec.description.descriptionEight || undefined}</p>
         </article>
       );
     }
