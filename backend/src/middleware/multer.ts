@@ -43,8 +43,8 @@ const storage = new CloudinaryStorage({
       allowedFormats: ["png", "jpg", "jpeg"],
       folder: "recipe-images",
       public_id: randomUUID(),
-      width: 50,
-      height: 50,
+      width: 400,
+      height: 400,
     };
   },
 });
