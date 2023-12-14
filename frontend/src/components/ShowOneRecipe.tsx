@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { RecipeContext } from "../contexts/RecipeContext";
-
 import { useParams } from "react-router-dom";
+import "../scss/showOneRecipe.scss";
 
 export const ShowOneRecipe = () => {
   const recipes = useContext(RecipeContext);
