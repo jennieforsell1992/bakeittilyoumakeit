@@ -8,7 +8,6 @@ export interface IAction {
 export enum ActionType {
   GOTALLRECIPES,
   CREATENEWRECIPE,
-  GOTONERECIPE,
   TOGGLEHEART,
 }
 
@@ -68,12 +67,46 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
         console.log(action.payload);
         if (recipe._id === action.payload) {
           return {
-            ...state,
             _id: recipe._id,
+            likedRecipe: !recipe.likedRecipe,
+            imgUrl: recipe.imgUrl,
             name: recipe.name,
             bakingTime: recipe.bakingTime,
-            imgUrl: recipe.imgUrl,
-            likedRecipe: !recipe.likedRecipe,
+
+            description: {
+              descriptionOne: recipe.description.descriptionOne,
+              descriptionTwo: recipe.description.descriptionTwo,
+              descriptionThree: recipe.description.descriptionThree,
+              descriptionFour: recipe.description.descriptionFour,
+              descriptionFive: recipe.description.descriptionFive,
+              descriptionSix: recipe.description.descriptionSix,
+              descriptionSeven: recipe.description.descriptionSeven,
+              descriptionEight: recipe.description.descriptionEight,
+              descriptionNine: recipe.description.descriptionNine,
+              descriptionTen: recipe.description.descriptionTen,
+              descriptionEleven: recipe.description.descriptionEleven,
+              descriptionTwelve: recipe.description.descriptionTwelve,
+              descriptionThirteen: recipe.description.descriptionThirteen,
+              descriptionFourteen: recipe.description.descriptionFourteen,
+              descriptionFifteen: recipe.description.descriptionFifteen,
+              descriptionSixteen: recipe.description.descriptionSixteen,
+            },
+            allIngredients: {
+              IngredientOne: recipe.allIngredients.IngredientOne,
+              IngredientTwo: recipe.allIngredients.IngredientTwo,
+              IngredientThree: recipe.allIngredients.IngredientThree,
+              IngredientFour: recipe.allIngredients.IngredientFour,
+              IngredientFive: recipe.allIngredients.IngredientFive,
+              IngredientSix: recipe.allIngredients.IngredientSix,
+              IngredientSeven: recipe.allIngredients.IngredientSeven,
+              IngredientEight: recipe.allIngredients.IngredientEight,
+              IngredientNine: recipe.allIngredients.IngredientNine,
+              IngredientTen: recipe.allIngredients.IngredientTen,
+              IngredientEleven: recipe.allIngredients.IngredientEleven,
+              IngredientTwelve: recipe.allIngredients.IngredientTwelve,
+              IngredientThirteen: recipe.allIngredients.IngredientThirteen,
+              IngredientFourteen: recipe.allIngredients.IngredientFourteen,
+            },
           };
         } else {
           return recipe;
