@@ -1,0 +1,78 @@
+@use "mixins" as mix;
+@use "variables" as var;
+
+.oneRecipe-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 15px;
+  @include mix.desktop {
+    flex-direction: row;
+    gap: 100px;
+  }
+
+  .oneRecipe-wrapper-title-baking-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    gap: 10px;
+
+    .oneRecipe-title {
+      font-size: 2rem;
+    }
+
+    .oneRecipe-wrapper-schedule {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+
+    .oneRecipe-wrapper-img {
+      .oneRecipe-img {
+        border-radius: 5px;
+        @include mix.desktop {
+          width: 350px;
+          height: 350px;
+        }
+      }
+    }
+  }
+  .oneRecipe-wrapper-icon-favorite {
+    .oneRecipe-icon-wrapper {
+      background-color: var.$heart-background;
+      padding: 15px;
+      width: 100px;
+      display: flex;
+      flex-direction: row;
+      border-radius: 50px;
+      gap: 5px;
+    }
+  }
+
+  .oneRecipe-wrapper-ing-desc {
+    background-color: var.$secondary-color;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    padding: 30px;
+    border-radius: 5px;
+    @include mix.desktop {
+      padding: 70px;
+    }
+
+    .oneRecipe-wrapper-allIngredients {
+      .oneRecipe-ingredient-title {
+        font-weight: bold;
+      }
+    }
+    .oneRecipe-wrapper-description {
+      .oneRecipe-desc-title {
+        font-weight: bold;
+      }
+    }
+  }
+}
