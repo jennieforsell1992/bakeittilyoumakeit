@@ -1,6 +1,6 @@
 import { ChangeEvent, useContext, useState } from "react";
 import { RecipeContext } from "../contexts/RecipeContext";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { RecipeDispatchContext } from "../contexts/RecipeDispatchContext";
 import { ActionType } from "../reducers/RecipeReducer";
 import "../scss/showSearchRecipe.scss";
