@@ -3,11 +3,12 @@ import { RecipeContext } from "../contexts/RecipeContext";
 import "../scss/showAllRecipes.scss";
 import { RecipeDispatchContext } from "../contexts/RecipeDispatchContext";
 import { ActionType } from "../reducers/RecipeReducer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const ShowAllRecipes = () => {
   const allRecipes = useContext(RecipeContext);
   const dispatch = useContext(RecipeDispatchContext);
+  const navigate = useNavigate();
 
   const [isLiked, setIsLiked] = useState(false);
   const [showSort, setShowSort] = useState(false);
@@ -20,6 +21,12 @@ export const ShowAllRecipes = () => {
       type: ActionType.TOGGLEHEART,
       payload: id,
     });
+
+    console.log(allRecipes);
+  };
+
+  const handleClickNavigateToOnePage = (id: string) => {
+    navigate(`/allrecipes/${id}`);
   };
 
   const sortRecipesA = () => {
@@ -66,13 +73,19 @@ export const ShowAllRecipes = () => {
 
   const showAllRecipes = allRecipes.map((res, index) => {
     return (
-      <Link to={res._id.toString()} className="allRecipe-wrapper" key={index}>
+      <div
+        onClick={() => {
+          handleClickNavigateToOnePage(res._id);
+        }}
+        className="allRecipe-wrapper"
+        key={index}
+      >
         <div className="allRecipe-wrapper-img">
           <img className="allRecipe-img" src={res.imgUrl} alt={res.name} />
           <div
             className="icon-wrapper-allRecipes"
-            onClick={() => {
-              handleClickHeart(res._id);
+            onClick={(e) => {
+              e.stopPropagation(), handleClickHeart(res._id);
             }}
           >
             <span
@@ -90,7 +103,7 @@ export const ShowAllRecipes = () => {
           <p className="allRecipe-name">{res.name}</p>
           <p className="allRecipe-bakingTime">{res.bakingTime}</p>
         </div>
-      </Link>
+      </div>
     );
   });
 
