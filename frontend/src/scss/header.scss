@@ -1,12 +1,28 @@
 @use "mixins" as mix;
+@use "variables" as var;
 
 .header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-bottom: 3px solid lightgray;
+  border-bottom: 5px solid var.$secondary-color;
   @include mix.desktop {
     margin-top: 15px;
+  }
+
+  .logo-wrapper {
+    margin-top: 20px;
+    margin-left: 5px;
+    @include mix.desktop {
+      margin-top: 10px;
+    }
+    .logo {
+      font-family: "Zeyada", cursive;
+      font-size: 1.5rem;
+      @include mix.desktop {
+        font-size: 2.5rem;
+      }
+    }
   }
 
   .header-wrapper {
@@ -32,12 +48,6 @@
         align-items: center;
         gap: 30px;
         top: 0;
-
-        .li-item {
-          border: solid 2px lightgrey;
-          border-radius: 20px;
-          padding: 10px;
-        }
       }
     }
   }

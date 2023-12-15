@@ -10,7 +10,6 @@
   margin-bottom: 15px;
   @include mix.desktop {
     flex-direction: row;
-    gap: 100px;
   }
 
   .oneRecipe-wrapper-title-baking-img {
@@ -22,26 +21,38 @@
     gap: 10px;
 
     .oneRecipe-title {
-      font-size: 2rem;
+      font-family: "Rethink Sans", sans-serif;
+      font-size: 2.2rem;
+      @include mix.desktop {
+      }
     }
 
     .oneRecipe-wrapper-schedule {
       display: flex;
       flex-direction: row;
       gap: 10px;
+      @include mix.desktop {
+      }
     }
 
     .oneRecipe-wrapper-img {
+      @include mix.desktop {
+      }
       .oneRecipe-img {
         border-radius: 5px;
+
         @include mix.desktop {
-          width: 350px;
-          height: 350px;
+          width: 500px;
+          height: 500px;
         }
       }
     }
   }
   .oneRecipe-wrapper-icon-favorite {
+    @include mix.desktop {
+      margin-top: -100px;
+    }
+
     .oneRecipe-icon-wrapper {
       background-color: var.$heart-background;
       padding: 15px;
@@ -62,6 +73,8 @@
     border-radius: 5px;
     @include mix.desktop {
       padding: 70px;
+      // margin-left: -200px;
+      // margin-top: 245px;
     }
 
     .oneRecipe-wrapper-allIngredients {
