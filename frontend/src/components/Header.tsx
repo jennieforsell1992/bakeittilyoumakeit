@@ -17,7 +17,7 @@ export const Header = () => {
         <div className="icon-wrapper-heart">
           <span className="material-symbols-outlined">favorite</span>
         </div>
-        <HamburgerMenu />
+        <HamburgerMenu></HamburgerMenu>
       </div>
     </header>
   );
