@@ -1,6 +1,9 @@
 export const Footer = () => {
   return (
     <footer className="footer">
+      <div className="footer-logo-wrapper">
+        <h3 className="footer-logo">Bake it til you make it</h3>
+      </div>
       <div className="wrapper-contacts">
         <p className="contact">Kontakt</p>
         <p className="contact-text">

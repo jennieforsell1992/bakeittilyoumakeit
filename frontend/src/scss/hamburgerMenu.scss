@@ -22,7 +22,6 @@ $hamburger-bar-height: 4px;
       transition: 0.3s;
 
       &:nth-child(2) {
-        /* Justera avståndet mellan de tre linjerna */
         margin: 4px 0;
       }
     }
@@ -38,6 +37,23 @@ $hamburger-bar-height: 4px;
     z-index: 1000;
     border-radius: 20px;
     padding: 10px;
+    .li-item {
+      a {
+        text-decoration: none;
+      }
+      a:visited {
+        text-decoration: none;
+        color: #242424;
+      }
+      a:focus {
+        text-decoration: none;
+        color: #242424;
+      }
+      a:active {
+        text-decoration: none;
+        color: #242424;
+      }
+    }
   }
 
   /* Animerad effekt när hamburgerikonen klickas på */
