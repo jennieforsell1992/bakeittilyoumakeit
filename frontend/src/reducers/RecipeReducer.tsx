@@ -65,8 +65,9 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
     case ActionType.TOGGLEHEART: {
       return state.map((recipe) => {
         console.log(action.payload);
+
         if (recipe._id === action.payload) {
-          return {
+          const likedRecipe = {
             _id: recipe._id,
             likedRecipe: !recipe.likedRecipe,
             imgUrl: recipe.imgUrl,
@@ -108,6 +109,12 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
               IngredientFourteen: recipe.allIngredients.IngredientFourteen,
             },
           };
+          localStorage.setItem(
+            "recipe",
+            JSON.stringify({ ...state, likedRecipe })
+          );
+
+          return likedRecipe;
         } else {
           return recipe;
         }
@@ -118,4 +125,8 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
   }
 
   return state;
+};
+
+const saveToLs = (recipe: IRecipe) => {
+  localStorage.setItem("recipe", JSON.stringify(recipe));
 };
