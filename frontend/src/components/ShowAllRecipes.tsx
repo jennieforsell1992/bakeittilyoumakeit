@@ -4,6 +4,7 @@ import "../scss/showAllRecipes.scss";
 import { RecipeDispatchContext } from "../contexts/RecipeDispatchContext";
 import { ActionType } from "../reducers/RecipeReducer";
 import { useNavigate } from "react-router-dom";
+import { IoMdHeart } from "react-icons/io";
 
 export const ShowAllRecipes = () => {
   const allRecipes = useContext(RecipeContext);
@@ -88,15 +89,13 @@ export const ShowAllRecipes = () => {
               e.stopPropagation(), handleClickHeart(res._id);
             }}
           >
-            <span
+            <IoMdHeart
               className={
                 res.likedRecipe
                   ? "material-symbols-outlined liked"
                   : "material-symbols-outlined"
               }
-            >
-              favorite
-            </span>
+            />
           </div>
         </div>
         <div className="allRecipe-wrapper-nameWrapper">

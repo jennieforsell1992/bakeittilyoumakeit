@@ -3,7 +3,6 @@ import { RecipeContext } from "../contexts/RecipeContext";
 import { useNavigate } from "react-router-dom";
 import { RecipeDispatchContext } from "../contexts/RecipeDispatchContext";
 import { ActionType } from "../reducers/RecipeReducer";
-import "../scss/showSearchRecipe.scss";
 
 export const ShowSearchRecipe = () => {
   const recipes = useContext(RecipeContext);
