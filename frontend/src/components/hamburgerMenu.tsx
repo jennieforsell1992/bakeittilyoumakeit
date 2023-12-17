@@ -25,14 +25,12 @@ export const HamburgerMenu = () => {
       </div>
 
       <ul className={`links ${isOpen ? "open" : ""}`}>
-        {/* {links.map((link, index) => ( */}
         <li className="li-item" onClick={navigateToAllRecipes}>
           Alla recept
         </li>
         <li className="li-item" onClick={navigateToCreateRecipe}>
           Lägg till nytt recept
         </li>
-        {/* ))} */}
       </ul>
     </div>
   );
