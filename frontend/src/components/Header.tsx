@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import "../scss/header.scss";
 import { HamburgerMenu } from "./HamburgerMenu";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { IoIosSearch } from "react-icons/io";
+import "../scss/header.scss";
 
 export const Header = () => {
   const navigate = useNavigate();
