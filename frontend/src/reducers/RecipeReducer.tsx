@@ -14,6 +14,7 @@ export enum ActionType {
 export const RecipeReducer = (state: IRecipe[], action: IAction) => {
   switch (action.type) {
     case ActionType.GOTALLRECIPES: {
+      saveToLs(JSON.parse(action.payload));
       return JSON.parse(action.payload);
     }
 
@@ -66,8 +67,32 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
       return state.map((recipe) => {
         console.log(action.payload);
 
+        // if (recipe.likedRecipe === false) {
+
+        // storedRecipe.recipe = {
+        //   ...storedRecipe.recipe,
+        //   likedRecipe: true,
+        // };
+
+        // localStorage.setItem(
+        //   "recipes",
+        //   JSON.stringify({
+        //     ...state,
+        //     recipe: { ...recipe, likedRecipe: true },
+        //   })
+        // );
+        // } else {
+        //   localStorage.setItem(
+        //     "recipe",
+        //     JSON.stringify({
+        //       ...state,
+        //       recipe: { ...recipe, likedRecipe: false },
+        //     })
+        //   );
+        // }
+
         if (recipe._id === action.payload) {
-          const likedRecipe = {
+          const toggledLikedRecipe = {
             _id: recipe._id,
             likedRecipe: !recipe.likedRecipe,
             imgUrl: recipe.imgUrl,
@@ -109,12 +134,45 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
               IngredientFourteen: recipe.allIngredients.IngredientFourteen,
             },
           };
-          localStorage.setItem(
-            "recipe",
-            JSON.stringify({ ...state, likedRecipe })
+
+          const storedRecipe = JSON.parse(
+            localStorage.getItem("recipes") || "[]"
           );
 
-          return likedRecipe;
+          console.log("hämtar listan från localStorage", storedRecipe);
+
+          const setRecipe = localStorage.setItem(
+            "recipes",
+            JSON.stringify({
+              ...state,
+              recipe: { ...recipe, likedRecipe: true },
+            })
+          );
+
+          console.log("ändrade värdet till true på", setRecipe);
+
+          // if (likedRecipe.likedRecipe === false) {
+          // if (likedRecipe.likedRecipe === false) {
+          //   localStorage.setItem(
+          //     "recipe",
+          //     JSON.stringify({ ...state, likedRecipe })
+          //   );
+          // } else {
+          //   localStorage.setItem(
+          //     "recipe",
+          //     JSON.stringify({ ...state, likedRecipe: false })
+          //   );
+          // }
+
+          // } else {
+          //   console.log("nu är min likedrecipe omvandlad till false");
+          //   localStorage.setItem(
+          //     "recipe",
+          //     JSON.stringify({ ...state, likedRecipe: false })
+          //   );
+          // }
+
+          return toggledLikedRecipe;
         } else {
           return recipe;
         }
@@ -127,6 +185,6 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
   return state;
 };
 
-const saveToLs = (recipe: IRecipe) => {
-  localStorage.setItem("recipe", JSON.stringify(recipe));
+const saveToLs = (recipes: IRecipe[]) => {
+  localStorage.setItem("recipes", JSON.stringify(recipes));
 };

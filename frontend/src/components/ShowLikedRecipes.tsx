@@ -11,8 +11,8 @@ export const ShowLikedRecipes = () => {
   //   const [likedRecipes, setLikedRecipes] = useState<IRecipe[]>([]);
 
   //   useEffect(() => {
-  const recipesFromLs = JSON.parse(localStorage.getItem("recipe") || "");
-  console.log(recipesFromLs);
+  // const recipesFromLs = JSON.parse(localStorage.getItem("recipe") || "");
+  // console.log(recipesFromLs);
   //   setLikedRecipes((prevRecipe) => [...prevRecipe, recipesFromLs]);
   //   }, []);
 
@@ -20,5 +20,79 @@ export const ShowLikedRecipes = () => {
 
   //   console.log(likedRecipes);
 
-  return <p>component gillade recept</p>;
+  const [recipeFromLSState, setRecipeFromLSState] = useState<IRecipe[]>([]);
+
+  useEffect(() => {
+    // const recipeFromLS = localStorage.getItem("recipe");
+    const recipesFromLS = JSON.parse(localStorage.getItem("recipes") || "[]");
+    console.log(recipesFromLS);
+
+    // const recipeObject = JSON.parse(recipesFromLS);
+    setRecipeFromLSState((prevRecipe) => [...prevRecipe, recipesFromLS]);
+  }, []);
+
+  console.log(recipeFromLSState);
+
+  // const newListFromLS = recipeFromLSState.map((rec) => {
+  //   return (
+  //     <>
+  //       <p>{rec.name}</p>
+  //       <p>{rec.bakingTime}</p>
+  //     </>
+  //   );
+  // });
+
+  // console.log(newListFromLS);
+
+  const showRecipesFromLocalStorage = recipes.map((rec) => {
+    if (rec.likedRecipe === true) {
+      return (
+        <>
+          <p>{rec.name}</p>
+          <p>{rec.bakingTime}</p>
+        </>
+      );
+    }
+  });
+
+  console.log(showRecipesFromLocalStorage);
+
+  // const listFromLS = recipeFromLSState?.map((rec) => {
+  //   return (
+  //     <>
+  //       <p>{rec.name}</p>
+  //       <p>{rec.bakingTime}</p>
+  //     </>
+  //   );
+  // });
+
+  // console.log(listFromLS);
+
+  // const fromLocalStorage = localStorage.getItem("recipe");
+
+  // const parseLocalStorage = JSON.parse(fromLocalStorage);
+
+  // recipeFromLSState.map((rec) => {
+  //   return (
+  //     <>
+  //       {" "}
+  //       <p>{rec.name}</p>
+  //       <p>{rec.bakingTime}</p>
+  //     </>
+  //   );
+  // });
+
+  // if(recipesFromLs)
+
+  return (
+    <>
+      <p>hejhej</p>
+
+      <div>Gamla listan{showRecipesFromLocalStorage}</div>
+
+      {/* <div>{listFromLS}</div> */}
+      {/* <p>{recipeFromLSState.name}</p>
+      <p>{recipeFromLSState.bakingTime}</p> */}
+    </>
+  );
 };
