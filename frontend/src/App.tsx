@@ -20,6 +20,7 @@ function App() {
       });
     };
 
+    console.log("Nu körs min getData", getData());
     getData();
   }, [dispatch]);
 

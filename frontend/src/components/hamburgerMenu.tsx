@@ -1,16 +1,20 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const links = [
-    { text: "Alla recept", url: "/allrecipes" },
-    { text: "Lägg till nytt recept", url: "/createnewrecipe" },
-  ];
+  const navigateToAllRecipes = () => {
+    navigate("/allrecipes");
+  };
+  const navigateToCreateRecipe = () => {
+    navigate("/createnewrecipe");
+  };
 
   return (
     <div className={`hamburger-menu ${isOpen ? "open" : ""}`}>
@@ -21,11 +25,14 @@ export const HamburgerMenu = () => {
       </div>
 
       <ul className={`links ${isOpen ? "open" : ""}`}>
-        {links.map((link, index) => (
-          <li className="li-item" key={index}>
-            <a href={link.url}>{link.text}</a>
-          </li>
-        ))}
+        {/* {links.map((link, index) => ( */}
+        <li className="li-item" onClick={navigateToAllRecipes}>
+          Alla recept
+        </li>
+        <li className="li-item" onClick={navigateToCreateRecipe}>
+          Lägg till nytt recept
+        </li>
+        {/* ))} */}
       </ul>
     </div>
   );
