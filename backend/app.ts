@@ -20,7 +20,7 @@ app.use(
   cors({
     // origin: "http://localhost:5173",
     origin:
-      "http://bakeittilyoumakeit-2ytc-oonnwin3b-jennie-forsells-projects.vercel.app",
+      "https://bakeittilyoumakeit-2ytc-7075yi68k-jennie-forsells-projects.vercel.app/",
     methods: ["GET", "POST"],
   })
 );
