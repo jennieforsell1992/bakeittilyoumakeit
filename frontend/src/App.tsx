@@ -13,6 +13,7 @@ function App() {
   useEffect(() => {
     const getData = async () => {
       const getAllDataFromApi = await getAllRecipes();
+      console.log(getAllDataFromApi);
 
       dispatch({
         type: ActionType.GOTALLRECIPES,
@@ -22,7 +23,9 @@ function App() {
 
     console.log("Nu körs min getData", getData());
     getData();
-  }, [dispatch]);
+  }, []);
+
+  console.log(recipes);
 
   return (
     <>

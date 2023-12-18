@@ -11,6 +11,8 @@ export const ShowAllRecipes = () => {
   const dispatch = useContext(RecipeDispatchContext);
   const navigate = useNavigate();
 
+  console.log(allRecipes);
+
   const [isLiked, setIsLiked] = useState(false);
   const [showSort, setShowSort] = useState(false);
 
@@ -22,6 +24,11 @@ export const ShowAllRecipes = () => {
       type: ActionType.TOGGLEHEART,
       payload: id,
     });
+
+    // dispatch({
+    //   type: ActionType.UPDATELIKEDHEARTMONGODB,
+    //   payload: likedRecipe,
+    // });
 
     console.log(allRecipes);
   };
