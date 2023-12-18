@@ -14,7 +14,7 @@ export enum ActionType {
 export const RecipeReducer = (state: IRecipe[], action: IAction) => {
   switch (action.type) {
     case ActionType.GOTALLRECIPES: {
-      saveToLs(JSON.parse(action.payload));
+      // saveToLs(JSON.parse(action.payload));
       return JSON.parse(action.payload);
     }
 
@@ -92,6 +92,8 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
         // }
 
         if (recipe._id === action.payload) {
+          console.log(state);
+
           const toggledLikedRecipe = {
             _id: recipe._id,
             likedRecipe: !recipe.likedRecipe,
@@ -135,6 +137,8 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
             },
           };
 
+          console.log(toggledLikedRecipe);
+
           const storedRecipe = JSON.parse(
             localStorage.getItem("recipes") || "[]"
           );
@@ -150,6 +154,8 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
           );
 
           console.log("ändrade värdet till true på", setRecipe);
+
+          //  const recipesInMongoDb = {...state, recipe: { ...recipe, likedRecipe: true }}
 
           // if (likedRecipe.likedRecipe === false) {
           // if (likedRecipe.likedRecipe === false) {
@@ -185,6 +191,6 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
   return state;
 };
 
-const saveToLs = (recipes: IRecipe[]) => {
-  localStorage.setItem("recipes", JSON.stringify(recipes));
-};
+// const saveToLs = (recipes: IRecipe[]) => {
+//   localStorage.setItem("recipes", JSON.stringify(recipes));
+// };
