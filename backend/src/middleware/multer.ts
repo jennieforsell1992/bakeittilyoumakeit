@@ -13,29 +13,6 @@ cloudinary.config({
   api_secret: process.env.API_SECRET,
 });
 
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, "public/uploads");
-//   },
-//   filename: (req, file, cb) => {
-//     cb(
-//       null,
-//       file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-//     );
-//   },
-// });
-
-// const storage = multer.diskStorage({});
-
-// const upload = multer({ storage: storage });
-// module.exports = upload;
-
-// const uploadMulterMiddleware: RequestHandler = multer({
-//   storage: storage,
-// }).single("imgUrl");
-
-// export default uploadMulterMiddleware;
-
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: async (req, file) => {
