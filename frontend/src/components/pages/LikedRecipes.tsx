@@ -1,3 +1,11 @@
+import { ShowLikedRecipes } from "../ShowLikedRecipes";
+
 export const LikedRecipes = () => {
-  return <p>Alla gillade recept</p>;
+  return (
+    <>
+      <div>
+        <ShowLikedRecipes></ShowLikedRecipes>
+      </div>
+    </>
+  );
 };

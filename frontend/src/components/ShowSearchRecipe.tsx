@@ -10,6 +10,8 @@ export const ShowSearchRecipe = () => {
   const navigate = useNavigate();
   const [searchRecipes, setSearchRecipes] = useState("");
 
+  console.log(recipes);
+
   const handleNavigateToOneRecipe = (id: string) => {
     navigate(`/allrecipes/${id}`);
   };
