@@ -16,6 +16,7 @@ export enum ActionType {
 export const RecipeReducer = (state: IRecipe[], action: IAction) => {
   switch (action.type) {
     case ActionType.GOTALLRECIPES: {
+      console.log(state);
       // saveToLs(JSON.parse(action.payload));
       // console.log(action.payload);
 
@@ -78,6 +79,7 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
     // }
     case ActionType.TOGGLEHEART: {
       console.log(state);
+
       return state.map((recipe) => {
         console.log(action.payload);
 
@@ -127,27 +129,45 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
             },
           };
 
-          const recipesId = toggledLikedRecipe._id;
+          // const recipesId = toggledLikedRecipe._id;
 
-          updateRecipe(recipesId, toggledLikedRecipe);
+          // updateRecipe(recipesId, toggledLikedRecipe);
 
           console.log(toggledLikedRecipe);
 
-          const storedRecipe = JSON.parse(
-            localStorage.getItem("recipes") || "[]"
-          );
+          if (toggledLikedRecipe.likedRecipe === true) {
+            const storedRecipe = JSON.parse(
+              localStorage.getItem("recipes") || "[]"
+            );
 
-          console.log("hämtar listan från localStorage", storedRecipe);
+            console.log("hämtar listan från localStorage", storedRecipe);
 
-          const setRecipe = localStorage.setItem(
-            "recipes",
-            JSON.stringify({
-              ...state,
-              recipe: { ...recipe, likedRecipe: true },
-            })
-          );
+            const setRecipe = localStorage.setItem(
+              "recipes",
+              JSON.stringify({
+                ...state,
+              })
+            );
 
-          console.log("ändrade värdet till true på", setRecipe);
+            console.log("ändrade värdet till true på", setRecipe);
+          }
+          if (toggledLikedRecipe.likedRecipe === false) {
+            const storedRecipe = JSON.parse(
+              localStorage.getItem("recipes") || "[]"
+            );
+
+            console.log("hämtar listan från localStorage", storedRecipe);
+
+            const setRecipe = localStorage.setItem(
+              "recipes",
+              JSON.stringify({
+                ...state,
+                recipe: { ...recipe, likedRecipe: false },
+              })
+            );
+
+            console.log("ändrade värdet till false på", setRecipe);
+          }
 
           return toggledLikedRecipe;
         } else {
