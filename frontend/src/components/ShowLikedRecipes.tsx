@@ -54,14 +54,15 @@ export const ShowLikedRecipes = () => {
     console.log(recipesFromLSNew);
 
     setRecipeFromLSStateNew(recipesFromLSNew);
+    // setRecipeFromLSStateNew((prevRecipe) => [...prevRecipe, recipesFromLSNew]);
   }, []);
   console.log(recipeFromLSStateNew);
 
-  const LSList = recipeFromLSStateNew.map((rec) => {
-    <p>{rec.name}</p>;
-  });
+  // const LSList = recipeFromLSStateNew.map((rec) => {
+  //   <p>{rec.name}</p>;
+  // });
 
-  console.log(LSList);
+  // console.log(LSList);
 
   // const newList = recipeFromLSState.map((rec) => {
   //   <>
@@ -71,28 +72,30 @@ export const ShowLikedRecipes = () => {
 
   // console.log(newList);
 
-  const newList = recipeFromLSStateNew.map((rec: IRecipe) => {
-    return (
-      <>
-        <p>{rec.name}</p>
-      </>
-    );
-  });
+  // const newList = recipeFromLSStateNew.map((rec: IRecipe) => {
+  //   if (rec.likedRecipe === true) {
+  //     return (
+  //       <>
+  //         <p>{rec.name}</p>
+  //       </>
+  //     );
+  //   }
+  // });
 
-  console.log(newList);
+  // console.log(newList);
 
-  const showRecipesFromLocalStorage = recipes.map((rec) => {
-    if (recipeFromLSStateNew.filter((res) => res.likedRecipe !== true)) {
-      return (
-        <>
-          <p>{rec.name}</p>
-          <p>{rec.bakingTime}</p>
-        </>
-      );
-    }
-  });
+  // const showRecipesFromLocalStorage = recipes.map((rec) => {
+  //   if (recipeFromLSStateNew.filter((res) => res.likedRecipe !== true)) {
+  //     return (
+  //       <>
+  //         <p>{rec.name}</p>
+  //         <p>{rec.bakingTime}</p>
+  //       </>
+  //     );
+  //   }
+  // });
 
-  console.log(showRecipesFromLocalStorage);
+  // console.log(showRecipesFromLocalStorage);
 
   // const listFromLS = recipeFromLSState?.map((rec) => {
   //   return (
@@ -125,7 +128,7 @@ export const ShowLikedRecipes = () => {
     <>
       <p>hejhej</p>
 
-      <div>Gamla listan{showRecipesFromLocalStorage}</div>
+      {/* <div>Gamla listan{newList}</div> */}
 
       {/* <div>{listFromLS}</div> */}
       {/* <p>{recipeFromLSState.name}</p>
