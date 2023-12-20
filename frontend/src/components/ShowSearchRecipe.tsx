@@ -3,6 +3,8 @@ import { RecipeContext } from "../contexts/RecipeContext";
 import { useNavigate } from "react-router-dom";
 import { RecipeDispatchContext } from "../contexts/RecipeDispatchContext";
 import { ActionType } from "../reducers/RecipeReducer";
+import { IoMdHeart } from "react-icons/io";
+import { IoIosSearch } from "react-icons/io";
 
 export const ShowSearchRecipe = () => {
   const recipes = useContext(RecipeContext);
@@ -37,13 +39,18 @@ export const ShowSearchRecipe = () => {
 
   return (
     <div className="searchRecipe">
-      <input
-        className="search-input"
-        type="text"
-        onChange={handleSearch}
-        value={searchRecipes}
-      />
+      <div className="search-recipe-title">
+        <h3>sök på ditt favorit-recept</h3> <IoIosSearch />
+      </div>
 
+      <div className="search-recipe-input">
+        <input
+          className="search-input"
+          type="text"
+          onChange={handleSearch}
+          value={searchRecipes}
+        />
+      </div>
       {searchRecipes !== "" && (
         <div className="searchRecipe-container">
           {filteredRecipes.map((rec, index) => (
@@ -62,19 +69,17 @@ export const ShowSearchRecipe = () => {
                 />
                 <div
                   className="icon-wrapper-searchRecipe"
-                  onClick={() => {
-                    handleClickHeart(rec._id);
+                  onClick={(e) => {
+                    e.stopPropagation(), handleClickHeart(rec._id);
                   }}
                 >
-                  <span
+                  <IoMdHeart
                     className={
                       rec.likedRecipe
                         ? "material-symbols-outlined liked"
                         : "material-symbols-outlined"
                     }
-                  >
-                    favorite
-                  </span>
+                  />
                 </div>
               </div>
               <div className="searchRecipe-wrapper-nameWrapper">

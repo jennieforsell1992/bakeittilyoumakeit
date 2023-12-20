@@ -20,12 +20,12 @@ export const Header = () => {
         <p className="logo">Bake it til you make it</p>
       </div>
       <div className="header-wrapper">
-        <div className="icon-wrapper-search" onClick={handleClickSearch}>
+        <button className="icon-wrapper-search" onClick={handleClickSearch}>
           <IoIosSearch className="material-symbols-outlined" />
-        </div>
-        <div className="icon-wrapper-heart" onClick={handleClickHeart}>
+        </button>
+        <button className="icon-wrapper-heart" onClick={handleClickHeart}>
           <IoMdHeartEmpty className="material-symbols-outlined" />
-        </div>
+        </button>
         <HamburgerMenu></HamburgerMenu>
       </div>
     </header>
