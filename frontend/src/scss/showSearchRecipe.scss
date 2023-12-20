@@ -1,73 +1,84 @@
-// @use "mixins" as mix;
-// @use "variables" as var;
-// .allRecipe-container {
-//   display: flex;
-//   justify-content: center;
-//   flex-direction: column;
-//   align-items: center;
-//   gap: 15px;
-//   margin-top: 20px;
-//   margin-bottom: 20px;
-//   @include mix.desktop {
-//     flex-wrap: wrap;
-//     flex-direction: row;
-//   }
+@use "mixins" as mix;
+@use "variables" as var;
 
-//   .allRecipe-wrapper {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     flex-direction: column;
-//     border: 1px solid #242424;
-//     padding-bottom: 10px;
-//     border-radius: 10px;
-//     width: 48%;
-//     box-shadow: 1px 1px 2px 0;
-//     @include mix.desktop {
-//       width: 20%;
-//     }
+.searchRecipe {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 
-//     .allRecipe-wrapper-img {
-//       display: flex;
-//       position: relative;
-//       width: 100%;
+  .searchRecipe-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    @include mix.desktop {
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
 
-//       .allRecipe-img {
-//         width: 100%;
-//         height: auto;
-//         display: block;
-//         border-radius: 10px;
-//       }
+    .searchRecipe-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding-bottom: 10px;
+      width: 48%;
 
-//       .icon-wrapper-allRecipes {
-//         position: absolute;
-//         background-color: white;
-//         top: 0;
-//         right: 0;
-//         margin: 10px;
-//         border-radius: 50%;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         padding: 5px;
-//         .material-symbols-outlined {
-//           &.liked {
-//             color: red;
-//           }
-//         }
-//       }
-//     }
+      @include mix.desktop {
+        width: 20%;
+      }
 
-//     .allRecipe-wrapper-nameWrapper {
-//       display: flex;
-//       flex-direction: row;
-//       justify-content: last baseline;
-//       gap: 10px;
-//       .allRecipe-name {
-//       }
+      .searchRecipe-wrapper-img {
+        display: flex;
+        position: relative;
+        width: 100%;
 
-//       .allRecipe-bakingTime {
-//       }
-//     }
-//   }
-// }
+        .searchRecipe-img {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+
+        .icon-wrapper-searchRecipe {
+          position: absolute;
+          background-color: white;
+          top: 0;
+          right: 0;
+          margin: 10px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 5px;
+          .material-symbols-outlined {
+            cursor: pointer;
+
+            &.liked {
+              color: var.$heart-color;
+            }
+          }
+        }
+      }
+
+      .searchRecipe-wrapper-nameWrapper {
+        display: flex;
+        flex-direction: column;
+
+        .searchRecipe-name {
+          font-family: "Rethink Sans", sans-serif;
+          font-size: larger;
+        }
+
+        .searchRecipe-bakingTime {
+          font-family: "Rethink Sans", sans-serif;
+          font-style: italic;
+        }
+      }
+    }
+  }
+}

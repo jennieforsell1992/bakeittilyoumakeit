@@ -36,27 +36,32 @@ export const ShowSearchRecipe = () => {
   };
 
   return (
-    <>
-      <input type="text" onChange={handleSearch} value={searchRecipes} />
+    <div className="searchRecipe">
+      <input
+        className="search-input"
+        type="text"
+        onChange={handleSearch}
+        value={searchRecipes}
+      />
 
       {searchRecipes !== "" && (
-        <div>
+        <div className="searchRecipe-container">
           {filteredRecipes.map((rec, index) => (
             <div
               onClick={() => {
                 handleNavigateToOneRecipe(rec._id);
               }}
-              className="allRecipe-wrapper"
+              className="searchRecipe-wrapper"
               key={index}
             >
-              <div className="allRecipe-wrapper-img">
+              <div className="searchRecipe-wrapper-img">
                 <img
-                  className="allRecipe-img"
+                  className="searchRecipe-img"
                   src={rec.imgUrl}
                   alt={rec.name}
                 />
                 <div
-                  className="icon-wrapper-allRecipes"
+                  className="icon-wrapper-searchRecipe"
                   onClick={() => {
                     handleClickHeart(rec._id);
                   }}
@@ -72,14 +77,14 @@ export const ShowSearchRecipe = () => {
                   </span>
                 </div>
               </div>
-              <div className="allRecipe-wrapper-nameWrapper">
-                <p className="allRecipe-name">{rec.name}</p>
-                <p className="allRecipe-bakingTime">{rec.bakingTime}</p>
+              <div className="searchRecipe-wrapper-nameWrapper">
+                <p className="searchRecipe-name">{rec.name}</p>
+                <p className="searchRecipe-bakingTime">{rec.bakingTime}</p>
               </div>
             </div>
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 };
