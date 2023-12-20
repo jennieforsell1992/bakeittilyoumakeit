@@ -11,19 +11,14 @@ export enum ActionType {
   GOTALLRECIPES,
   CREATENEWRECIPE,
   TOGGLEHEART,
-  // UPDATELIKEDHEARTMONGODB,
 }
 
 export const RecipeReducer = (state: IRecipe[], action: IAction) => {
   switch (action.type) {
     case ActionType.GOTALLRECIPES: {
       console.log(state);
-      // saveToLs(JSON.parse(action.payload));
-      // console.log(action.payload);
 
       return JSON.parse(action.payload);
-      // console.log(action.payload);
-      // return { ...state, recipes: action.payload };
     }
 
     case ActionType.CREATENEWRECIPE: {
@@ -71,13 +66,7 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
       };
       return [...state, newRecipe];
     }
-    // case ActionType.UPDATELIKEDHEARTMONGODB: {
-    //   const updatedRecipes = state.map((recipe) =>
-    //     recipe._id === action.payload._id ? action.payload : recipe
-    //   );
-    //   console.log(updatedRecipes);
-    //   return { ...state, recipes: updatedRecipes };
-    // }
+
     case ActionType.TOGGLEHEART: {
       console.log(state);
 
@@ -110,25 +99,14 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
         }
       });
 
-      // const dataFromLS = JSON.parse(localStorage.getItem("recipes") || "[]");
-
-      // console.log(dataFromLS);
-      // const likedLS = dataFromLS.map((rec: IRecipe) => rec.likedRecipe);
-      // console.log(likedLS);
-      // const dataNewState = newState.map((rec) => rec.likedRecipe);
-      // console.log(dataNewState);
-
       localStorage.setItem("recipes", JSON.stringify(newState));
 
       return newState;
     }
+
     default:
       break;
   }
 
   return state;
 };
-
-// const saveToLs = (recipes: IRecipe[]) => {
-//   localStorage.setItem("recipes", JSON.stringify(recipes));
-// };

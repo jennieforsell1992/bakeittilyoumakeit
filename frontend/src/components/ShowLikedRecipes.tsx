@@ -2,170 +2,77 @@ import { useContext, useEffect, useState } from "react";
 import { IRecipe } from "../models/IRecipe";
 import { RecipeContext } from "../contexts/RecipeContext";
 import { useGetRecipesLS } from "../hooks/useGetRecipesLS";
+import { useNavigate } from "react-router-dom";
+import { ActionType } from "../reducers/RecipeReducer";
+import { RecipeDispatchContext } from "../contexts/RecipeDispatchContext";
+import { RxCross2 } from "react-icons/rx";
 
 export const ShowLikedRecipes = () => {
-  //    const recipesFromLs =  JSON.parse(localStorage.getItem("recipes") || "[]");
-
   const recipes = useContext(RecipeContext);
+  const dispatch = useContext(RecipeDispatchContext);
+  const navigate = useNavigate();
+
   console.log(recipes);
 
-  //   const [likedRecipes, setLikedRecipes] = useState<IRecipe[]>([]);
-
-  //   useEffect(() => {
-  // const recipesFromLs = JSON.parse(localStorage.getItem("recipe") || "");
-  // console.log(recipesFromLs);
-  //   setLikedRecipes((prevRecipe) => [...prevRecipe, recipesFromLs]);
-  //   }, []);
-
-  // setLikedRecipes([...likedRecipes, recipesFromLs]);
-
-  //   console.log(likedRecipes);
-
-  // const [recipeFromLSState, setRecipeFromLSState] = useState<IRecipe[]>([]);
-  const [recipeFromLSStateNew, setRecipeFromLSStateNew] = useState<IRecipe[]>(
-    []
-  );
+  const [recipeFromLS, setRecipeFromLS] = useState<IRecipe[]>([]);
 
   const getDataFromLs = useGetRecipesLS();
 
   console.log(getDataFromLs);
 
   useEffect(() => {
-    setRecipeFromLSStateNew(getDataFromLs);
-  }, [getDataFromLs, recipeFromLSStateNew]);
-  console.log(recipeFromLSStateNew);
+    setRecipeFromLS(getDataFromLs);
+  }, [getDataFromLs, recipeFromLS]);
+  console.log(recipeFromLS);
 
-  const newList = recipeFromLSStateNew.map((rec) => {
+  const handleClickNavigateToOnePage = (id: string) => {
+    navigate(`/allrecipes/${id}`);
+  };
+
+  const handleClickHeart = (id: string, i: number) => {
+    dispatch({
+      type: ActionType.TOGGLEHEART,
+      payload: id,
+    });
+
+    const recipeRemove = recipeFromLS.splice(i, 1);
+
+    setRecipeFromLS(recipeRemove);
+  };
+
+  const newList = recipeFromLS.map((rec, index) => {
     if (rec.likedRecipe === true) {
       return (
-        <>
-          <p>{rec.name}</p>
-          <p>{rec.bakingTime}</p>
-        </>
+        <article
+          onClick={() => {
+            handleClickNavigateToOnePage(rec._id);
+          }}
+          className="likedRecipe-wrapper"
+          key={index}
+        >
+          <div className="likedRecipe-wrapper-img">
+            <img className="likedRecipe-img" src={rec.imgUrl} alt={rec.name} />
+            <div
+              className="icon-wrapper-likedRecipe"
+              onClick={(e) => {
+                e.stopPropagation(), handleClickHeart(rec._id, index);
+              }}
+            >
+              <RxCross2 className="material-symbols-outlined" />
+            </div>
+          </div>
+          <div className="likedRecipe-wrapper-nameWrapper">
+            <p className="likedRecipe-name">{rec.name}</p>
+            <p className="likedRecipe-bakingTime">{rec.bakingTime}</p>
+          </div>
+        </article>
       );
     }
   });
-  // useEffect(() => {
-  //   // const recipeFromLS = localStorage.getItem("recipe");
-  //   const recipesFromLS = JSON.parse(localStorage.getItem("recipes") || "[]");
-  //   console.log(recipesFromLS);
-
-  //   // const recipeObject = JSON.parse(recipesFromLS);
-  //   setRecipeFromLSState((prevRecipe) => [...prevRecipe, recipesFromLS]);
-  // }, []);
-
-  // console.log(recipeFromLSState);
-
-  // const newListFromLS = recipeFromLSState.map((rec) => {
-  //   return (
-  //     <>
-  //       <p>{rec.name}</p>
-  //       <p>{rec.bakingTime}</p>
-  //     </>
-  //   );
-  // });
-
-  // console.log(newListFromLS);
-
-  // useEffect(() => {
-  //   const recipesFromLSNew = JSON.parse(
-  //     localStorage.getItem("recipes") || "[]"
-  //   );
-  //   console.log(recipesFromLSNew);
-
-  //   setRecipeFromLSStateNew(recipesFromLSNew);
-  // setRecipeFromLSStateNew((prevRecipe) => [...prevRecipe, recipesFromLSNew]);
-  // }, []);
-  // console.log(recipeFromLSStateNew);
-
-  // for (let i = 0; i < recipeFromLSStateNew.length; i++) {
-  //   const element = recipeFromLSStateNew[i];
-
-  //   if (element.likedRecipe === true) {
-  //     return (
-  //       <>
-  //         <p>{recipeFromLSStateNew[i].name}</p>
-  //         <p>{recipeFromLSStateNew[i].bakingTime}</p>
-  //       </>
-  //     );
-  //   }
-  // }
-
-  // const LSList = recipeFromLSStateNew.map((rec) => {
-  //   <p>{rec.name}</p>;
-  // });
-
-  // console.log(LSList);
-
-  // const newList = recipeFromLSState.map((rec) => {
-  //   <>
-  //     <p>{rec.name}</p>
-  //   </>;
-  // });
-
-  // console.log(newList);
-
-  // const newList = recipeFromLSStateNew.map((rec: IRecipe) => {
-  //   if (rec.likedRecipe === true) {
-  //     return (
-  //       <>
-  //         <p>{rec.name}</p>
-  //       </>
-  //     );
-  //   }
-  // });
-
-  // console.log(newList);
-
-  // const showRecipesFromLocalStorage = recipes.map((rec) => {
-  //   if (recipeFromLSStateNew.filter((res) => res.likedRecipe !== true)) {
-  //     return (
-  //       <>
-  //         <p>{rec.name}</p>
-  //         <p>{rec.bakingTime}</p>
-  //       </>
-  //     );
-  //   }
-  // });
-
-  // console.log(showRecipesFromLocalStorage);
-
-  // const listFromLS = recipeFromLSState?.map((rec) => {
-  //   return (
-  //     <>
-  //       <p>{rec.name}</p>
-  //       <p>{rec.bakingTime}</p>
-  //     </>
-  //   );
-  // });
-
-  // console.log(listFromLS);
-
-  // const fromLocalStorage = localStorage.getItem("recipe");
-
-  // const parseLocalStorage = JSON.parse(fromLocalStorage);
-
-  // recipeFromLSState.map((rec) => {
-  //   return (
-  //     <>
-  //       {" "}
-  //       <p>{rec.name}</p>
-  //       <p>{rec.bakingTime}</p>
-  //     </>
-  //   );
-  // });
-
-  // if(recipesFromLs)
 
   return (
     <>
-      <p>hejhej</p>
-
-      <div>Gamla listan{newList}</div>
-
-      {/* <div>{listFromLS}</div> */}
-      {/* <p>{recipeFromLSState.name}</p>
-      <p>{recipeFromLSState.bakingTime}</p> */}
+      <div className="likedRecipe-container">{newList}</div>
     </>
   );
 };

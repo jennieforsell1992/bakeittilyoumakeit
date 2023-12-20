@@ -26,10 +26,10 @@ export const HamburgerMenu = () => {
 
       <ul className={`links ${isOpen ? "open" : ""}`}>
         <li className="li-item" onClick={navigateToAllRecipes}>
-          Alla recept
+          <button>Alla recept</button>
         </li>
         <li className="li-item" onClick={navigateToCreateRecipe}>
-          Lägg till nytt recept
+          <button>Lägg till nytt recept</button>
         </li>
       </ul>
     </div>

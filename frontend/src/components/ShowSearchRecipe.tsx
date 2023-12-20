@@ -3,6 +3,8 @@ import { RecipeContext } from "../contexts/RecipeContext";
 import { useNavigate } from "react-router-dom";
 import { RecipeDispatchContext } from "../contexts/RecipeDispatchContext";
 import { ActionType } from "../reducers/RecipeReducer";
+import { IoMdHeart } from "react-icons/io";
+import { IoIosSearch } from "react-icons/io";
 
 export const ShowSearchRecipe = () => {
   const recipes = useContext(RecipeContext);
@@ -36,50 +38,58 @@ export const ShowSearchRecipe = () => {
   };
 
   return (
-    <>
-      <input type="text" onChange={handleSearch} value={searchRecipes} />
+    <div className="searchRecipe">
+      <div className="search-recipe-title">
+        <h3>sök på ditt favorit-recept</h3> <IoIosSearch />
+      </div>
 
+      <div className="search-recipe-input">
+        <input
+          className="search-input"
+          type="text"
+          onChange={handleSearch}
+          value={searchRecipes}
+        />
+      </div>
       {searchRecipes !== "" && (
-        <div>
+        <div className="searchRecipe-container">
           {filteredRecipes.map((rec, index) => (
             <div
               onClick={() => {
                 handleNavigateToOneRecipe(rec._id);
               }}
-              className="allRecipe-wrapper"
+              className="searchRecipe-wrapper"
               key={index}
             >
-              <div className="allRecipe-wrapper-img">
+              <div className="searchRecipe-wrapper-img">
                 <img
-                  className="allRecipe-img"
+                  className="searchRecipe-img"
                   src={rec.imgUrl}
                   alt={rec.name}
                 />
                 <div
-                  className="icon-wrapper-allRecipes"
-                  onClick={() => {
-                    handleClickHeart(rec._id);
+                  className="icon-wrapper-searchRecipe"
+                  onClick={(e) => {
+                    e.stopPropagation(), handleClickHeart(rec._id);
                   }}
                 >
-                  <span
+                  <IoMdHeart
                     className={
                       rec.likedRecipe
                         ? "material-symbols-outlined liked"
                         : "material-symbols-outlined"
                     }
-                  >
-                    favorite
-                  </span>
+                  />
                 </div>
               </div>
-              <div className="allRecipe-wrapper-nameWrapper">
-                <p className="allRecipe-name">{rec.name}</p>
-                <p className="allRecipe-bakingTime">{rec.bakingTime}</p>
+              <div className="searchRecipe-wrapper-nameWrapper">
+                <p className="searchRecipe-name">{rec.name}</p>
+                <p className="searchRecipe-bakingTime">{rec.bakingTime}</p>
               </div>
             </div>
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 };
