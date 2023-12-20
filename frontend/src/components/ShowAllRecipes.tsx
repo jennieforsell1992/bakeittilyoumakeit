@@ -11,19 +11,75 @@ export const ShowAllRecipes = () => {
   const dispatch = useContext(RecipeDispatchContext);
   const navigate = useNavigate();
 
+  console.log(allRecipes);
+
   const [isLiked, setIsLiked] = useState(false);
   const [showSort, setShowSort] = useState(false);
 
   const handleClickHeart = (id: string) => {
-    setIsLiked(!isLiked);
-    console.log(isLiked);
-    console.log(id);
+    // const recipesFromLs = dataFromLS.filter((rec) => rec._id === id);
+    // console.log(recipesFromLs);
+    // const idLs = recipesFromLs.map((rec) => rec._id);
+
     dispatch({
       type: ActionType.TOGGLEHEART,
       payload: id,
     });
 
-    console.log(allRecipes);
+    setIsLiked(!isLiked);
+
+    console.log(isLiked);
+
+    // console.log(id);
+
+    // if (isLiked === true) {
+    //   localStorage.setItem(
+    //     "recipes",
+    //     JSON.stringify(
+    //       allRecipes.map((rec) => {
+    //         return { ...allRecipes, rec: { ...rec, likedRecipe: true } };
+    //       })
+    //     )
+    //   );
+    // }
+    // dispatch({
+    //   type: ActionType.UPDATELIKEDHEARTMONGODB,
+    //   payload: likedRecipe,
+    // });
+
+    // if (allRecipes.filter((rec) => rec._id === id)) {
+    //   const storedRecipe = JSON.parse(localStorage.getItem("recipes") || "[]");
+
+    //   console.log("hämtar listan från localStorage", storedRecipe);
+
+    //   const setRecipe = localStorage.setItem(
+    //     "recipes",
+    //     JSON.stringify({
+    //       ...storedRecipe,
+    //       likedRecipe: true,
+    //     })
+    //   );
+
+    //   console.log("ändrade värdet till true på", setRecipe);
+    // }
+
+    // if (toggledLikedRecipe.likedRecipe === false) {
+    //   const storedRecipe = JSON.parse(localStorage.getItem("recipes") || "[]");
+
+    //   console.log("hämtar listan från localStorage", storedRecipe);
+
+    //   const setRecipe = localStorage.setItem(
+    //     "recipes",
+
+    //     JSON.stringify({
+    //       ...state,
+
+    //       recipe: { ...recipe, likedRecipe: false },
+    //     })
+    //   );
+
+    //   console.log("ändrade värdet till false på", setRecipe);
+    // }
   };
 
   const handleClickNavigateToOnePage = (id: string) => {

@@ -1,4 +1,6 @@
+import { useGetRecipesLS } from "../hooks/useGetRecipesLS";
 import { IRecipe } from "../models/IRecipe";
+import { updateRecipe } from "../services/RecipeApi";
 
 export interface IAction {
   type: ActionType;
@@ -9,13 +11,19 @@ export enum ActionType {
   GOTALLRECIPES,
   CREATENEWRECIPE,
   TOGGLEHEART,
+  // UPDATELIKEDHEARTMONGODB,
 }
 
 export const RecipeReducer = (state: IRecipe[], action: IAction) => {
   switch (action.type) {
     case ActionType.GOTALLRECIPES: {
+      console.log(state);
       // saveToLs(JSON.parse(action.payload));
+      // console.log(action.payload);
+
       return JSON.parse(action.payload);
+      // console.log(action.payload);
+      // return { ...state, recipes: action.payload };
     }
 
     case ActionType.CREATENEWRECIPE: {
@@ -63,33 +71,18 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
       };
       return [...state, newRecipe];
     }
+    // case ActionType.UPDATELIKEDHEARTMONGODB: {
+    //   const updatedRecipes = state.map((recipe) =>
+    //     recipe._id === action.payload._id ? action.payload : recipe
+    //   );
+    //   console.log(updatedRecipes);
+    //   return { ...state, recipes: updatedRecipes };
+    // }
     case ActionType.TOGGLEHEART: {
-      return state.map((recipe) => {
+      console.log(state);
+
+      const newState = state.map((recipe) => {
         console.log(action.payload);
-
-        // if (recipe.likedRecipe === false) {
-
-        // storedRecipe.recipe = {
-        //   ...storedRecipe.recipe,
-        //   likedRecipe: true,
-        // };
-
-        // localStorage.setItem(
-        //   "recipes",
-        //   JSON.stringify({
-        //     ...state,
-        //     recipe: { ...recipe, likedRecipe: true },
-        //   })
-        // );
-        // } else {
-        //   localStorage.setItem(
-        //     "recipe",
-        //     JSON.stringify({
-        //       ...state,
-        //       recipe: { ...recipe, likedRecipe: false },
-        //     })
-        //   );
-        // }
 
         if (recipe._id === action.payload) {
           console.log(state);
@@ -102,87 +95,32 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
             bakingTime: recipe.bakingTime,
 
             description: {
-              descriptionOne: recipe.description.descriptionOne,
-              descriptionTwo: recipe.description.descriptionTwo,
-              descriptionThree: recipe.description.descriptionThree,
-              descriptionFour: recipe.description.descriptionFour,
-              descriptionFive: recipe.description.descriptionFive,
-              descriptionSix: recipe.description.descriptionSix,
-              descriptionSeven: recipe.description.descriptionSeven,
-              descriptionEight: recipe.description.descriptionEight,
-              descriptionNine: recipe.description.descriptionNine,
-              descriptionTen: recipe.description.descriptionTen,
-              descriptionEleven: recipe.description.descriptionEleven,
-              descriptionTwelve: recipe.description.descriptionTwelve,
-              descriptionThirteen: recipe.description.descriptionThirteen,
-              descriptionFourteen: recipe.description.descriptionFourteen,
-              descriptionFifteen: recipe.description.descriptionFifteen,
-              descriptionSixteen: recipe.description.descriptionSixteen,
+              ...recipe.description,
             },
             allIngredients: {
-              IngredientOne: recipe.allIngredients.IngredientOne,
-              IngredientTwo: recipe.allIngredients.IngredientTwo,
-              IngredientThree: recipe.allIngredients.IngredientThree,
-              IngredientFour: recipe.allIngredients.IngredientFour,
-              IngredientFive: recipe.allIngredients.IngredientFive,
-              IngredientSix: recipe.allIngredients.IngredientSix,
-              IngredientSeven: recipe.allIngredients.IngredientSeven,
-              IngredientEight: recipe.allIngredients.IngredientEight,
-              IngredientNine: recipe.allIngredients.IngredientNine,
-              IngredientTen: recipe.allIngredients.IngredientTen,
-              IngredientEleven: recipe.allIngredients.IngredientEleven,
-              IngredientTwelve: recipe.allIngredients.IngredientTwelve,
-              IngredientThirteen: recipe.allIngredients.IngredientThirteen,
-              IngredientFourteen: recipe.allIngredients.IngredientFourteen,
+              ...recipe.description,
             },
           };
 
           console.log(toggledLikedRecipe);
-
-          const storedRecipe = JSON.parse(
-            localStorage.getItem("recipes") || "[]"
-          );
-
-          console.log("hämtar listan från localStorage", storedRecipe);
-
-          const setRecipe = localStorage.setItem(
-            "recipes",
-            JSON.stringify({
-              ...state,
-              recipe: { ...recipe, likedRecipe: true },
-            })
-          );
-
-          console.log("ändrade värdet till true på", setRecipe);
-
-          //  const recipesInMongoDb = {...state, recipe: { ...recipe, likedRecipe: true }}
-
-          // if (likedRecipe.likedRecipe === false) {
-          // if (likedRecipe.likedRecipe === false) {
-          //   localStorage.setItem(
-          //     "recipe",
-          //     JSON.stringify({ ...state, likedRecipe })
-          //   );
-          // } else {
-          //   localStorage.setItem(
-          //     "recipe",
-          //     JSON.stringify({ ...state, likedRecipe: false })
-          //   );
-          // }
-
-          // } else {
-          //   console.log("nu är min likedrecipe omvandlad till false");
-          //   localStorage.setItem(
-          //     "recipe",
-          //     JSON.stringify({ ...state, likedRecipe: false })
-          //   );
-          // }
 
           return toggledLikedRecipe;
         } else {
           return recipe;
         }
       });
+
+      // const dataFromLS = JSON.parse(localStorage.getItem("recipes") || "[]");
+
+      // console.log(dataFromLS);
+      // const likedLS = dataFromLS.map((rec: IRecipe) => rec.likedRecipe);
+      // console.log(likedLS);
+      // const dataNewState = newState.map((rec) => rec.likedRecipe);
+      // console.log(dataNewState);
+
+      localStorage.setItem("recipes", JSON.stringify(newState));
+
+      return newState;
     }
     default:
       break;

@@ -3,26 +3,31 @@ import { router } from "./Router";
 import "./App.scss";
 import { useEffect, useReducer } from "react";
 import { ActionType, RecipeReducer } from "./reducers/RecipeReducer";
-import { getAllRecipes } from "./services/RecipeApi";
 import { RecipeContext } from "./contexts/RecipeContext";
 import { RecipeDispatchContext } from "./contexts/RecipeDispatchContext";
+import { useGetRecipesLS } from "./hooks/useGetRecipesLS";
 
 function App() {
   const [recipes, dispatch] = useReducer(RecipeReducer, []);
+  const getDataFromLS = useGetRecipesLS();
+  console.log(getDataFromLS);
 
   useEffect(() => {
-    const getData = async () => {
-      const getAllDataFromApi = await getAllRecipes();
+    const getData = () => {
+      // const getAllDataFromApi = await getAllRecipes();
+      // console.log(getAllDataFromApi);
 
       dispatch({
         type: ActionType.GOTALLRECIPES,
-        payload: JSON.stringify(getAllDataFromApi),
+        payload: JSON.stringify(getDataFromLS),
       });
     };
 
     console.log("Nu körs min getData", getData());
     getData();
-  }, [dispatch]);
+  }, [getDataFromLS]);
+
+  console.log(recipes);
 
   return (
     <>

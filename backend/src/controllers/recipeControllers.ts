@@ -50,3 +50,38 @@ export const getAllRecipes: RequestHandler = async (req, res, next) => {
     return res.status(500).json("Sorry, couldn't get all recipes");
   }
 };
+
+export const updateRecipe: RequestHandler = async (req, res, next) => {
+  console.log("change likedRecipe ", req.params.id);
+  try {
+    const recipeId = req.params.id;
+
+    const {
+      likedRecipe,
+      imgUrl,
+      name,
+      description,
+      allIngredients,
+      bakingTime,
+    } = req.body;
+
+    const sort = { _id: recipeId };
+
+    const update = {
+      likedRecipe: likedRecipe,
+      imgUrl: imgUrl,
+      name: name,
+      bakingTime: bakingTime,
+      description: description,
+      allIngredients: allIngredients,
+    };
+
+    let recipe = await Recipe.findOneAndUpdate(sort, update, { new: true });
+
+    return res.status(201).json(recipe);
+  } catch (error) {
+    console.error(error);
+
+    return res.status(500).json("Sorry, couldn't update recipe");
+  }
+};
