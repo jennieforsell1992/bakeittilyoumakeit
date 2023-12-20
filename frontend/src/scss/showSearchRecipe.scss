@@ -8,6 +8,23 @@
   align-items: center;
   gap: 20px;
 
+  .search-recipe-title {
+    margin-top: 10px;
+    display: flex;
+    gap: 30px;
+  }
+
+  .search-recipe-input {
+    margin-top: 12px;
+    justify-content: center;
+    align-items: center;
+    .search-input {
+      padding: 10px;
+      font-family: "Rethink Sans", sans-serif;
+      border-radius: 5px;
+    }
+  }
+
   .searchRecipe-container {
     display: flex;
     justify-content: center;
