@@ -1,3 +1,4 @@
+import { useGetRecipesLS } from "../hooks/useGetRecipesLS";
 import { IRecipe } from "../models/IRecipe";
 import { updateRecipe } from "../services/RecipeApi";
 
@@ -80,7 +81,7 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
     case ActionType.TOGGLEHEART: {
       console.log(state);
 
-      return state.map((recipe) => {
+      const newState = state.map((recipe) => {
         console.log(action.payload);
 
         if (recipe._id === action.payload) {
@@ -94,86 +95,32 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
             bakingTime: recipe.bakingTime,
 
             description: {
-              descriptionOne: recipe.description.descriptionOne,
-              descriptionTwo: recipe.description.descriptionTwo,
-              descriptionThree: recipe.description.descriptionThree,
-              descriptionFour: recipe.description.descriptionFour,
-              descriptionFive: recipe.description.descriptionFive,
-              descriptionSix: recipe.description.descriptionSix,
-              descriptionSeven: recipe.description.descriptionSeven,
-              descriptionEight: recipe.description.descriptionEight,
-              descriptionNine: recipe.description.descriptionNine,
-              descriptionTen: recipe.description.descriptionTen,
-              descriptionEleven: recipe.description.descriptionEleven,
-              descriptionTwelve: recipe.description.descriptionTwelve,
-              descriptionThirteen: recipe.description.descriptionThirteen,
-              descriptionFourteen: recipe.description.descriptionFourteen,
-              descriptionFifteen: recipe.description.descriptionFifteen,
-              descriptionSixteen: recipe.description.descriptionSixteen,
+              ...recipe.description,
             },
             allIngredients: {
-              IngredientOne: recipe.allIngredients.IngredientOne,
-              IngredientTwo: recipe.allIngredients.IngredientTwo,
-              IngredientThree: recipe.allIngredients.IngredientThree,
-              IngredientFour: recipe.allIngredients.IngredientFour,
-              IngredientFive: recipe.allIngredients.IngredientFive,
-              IngredientSix: recipe.allIngredients.IngredientSix,
-              IngredientSeven: recipe.allIngredients.IngredientSeven,
-              IngredientEight: recipe.allIngredients.IngredientEight,
-              IngredientNine: recipe.allIngredients.IngredientNine,
-              IngredientTen: recipe.allIngredients.IngredientTen,
-              IngredientEleven: recipe.allIngredients.IngredientEleven,
-              IngredientTwelve: recipe.allIngredients.IngredientTwelve,
-              IngredientThirteen: recipe.allIngredients.IngredientThirteen,
-              IngredientFourteen: recipe.allIngredients.IngredientFourteen,
+              ...recipe.description,
             },
           };
 
-          // const recipesId = toggledLikedRecipe._id;
-
-          // updateRecipe(recipesId, toggledLikedRecipe);
-
           console.log(toggledLikedRecipe);
-
-          if (toggledLikedRecipe.likedRecipe === true) {
-            const storedRecipe = JSON.parse(
-              localStorage.getItem("recipes") || "[]"
-            );
-
-            console.log("hämtar listan från localStorage", storedRecipe);
-
-            const setRecipe = localStorage.setItem(
-              "recipes",
-              JSON.stringify({
-                ...state,
-              })
-            );
-
-            console.log("ändrade värdet till true på", setRecipe);
-          }
-          if (toggledLikedRecipe.likedRecipe === false) {
-            const storedRecipe = JSON.parse(
-              localStorage.getItem("recipes") || "[]"
-            );
-
-            console.log("hämtar listan från localStorage", storedRecipe);
-
-            const setRecipe = localStorage.setItem(
-              "recipes",
-              JSON.stringify({
-                ...state,
-                recipe: { ...recipe, likedRecipe: false },
-              })
-            );
-
-            console.log("ändrade värdet till false på", setRecipe);
-          }
 
           return toggledLikedRecipe;
         } else {
           return recipe;
         }
       });
+
+      // const dataFromLS = JSON.parse(localStorage.getItem("recipes") || "[]");
+
+      // console.log(dataFromLS);
+      // const likedLS = dataFromLS.map((rec: IRecipe) => rec.likedRecipe);
+      // console.log(likedLS);
+      // const dataNewState = newState.map((rec) => rec.likedRecipe);
+      // console.log(dataNewState);
+
+      localStorage.setItem("recipes", JSON.stringify(newState));
+
+      return newState;
     }
     default:
       break;

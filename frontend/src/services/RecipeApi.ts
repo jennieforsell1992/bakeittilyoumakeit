@@ -7,8 +7,6 @@ export const getAllRecipes = async () => {
     // "bakeittilyoumakeit-2ytc-jennie-forsells-projects.vercel.app"
   );
 
-  localStorage.setItem("recipes", JSON.stringify(response.data));
-
   return response.data;
 };
 
