@@ -29,7 +29,7 @@ export const ShowLikedRecipes = () => {
     navigate(`/allrecipes/${id}`);
   };
 
-  const handleClickHeart = (id: string, i: number) => {
+  const handleClickHeartLiked = (id: string, i: number) => {
     dispatch({
       type: ActionType.TOGGLEHEART,
       payload: id,
@@ -55,7 +55,7 @@ export const ShowLikedRecipes = () => {
             <div
               className="icon-wrapper-likedRecipe"
               onClick={(e) => {
-                e.stopPropagation(), handleClickHeart(rec._id, index);
+                e.stopPropagation(), handleClickHeartLiked(rec._id, index);
               }}
             >
               <RxCross2 className="material-symbols-outlined" />

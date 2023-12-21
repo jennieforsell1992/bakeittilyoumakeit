@@ -30,7 +30,7 @@ export const ShowSearchRecipe = () => {
       searchRecipes === "" ||
       rec.name.toLowerCase().includes(searchRecipes.toLowerCase())
   );
-  const handleClickHeart = (id: string) => {
+  const handleClickHeartSearch = (id: string) => {
     dispatch({
       type: ActionType.TOGGLEHEART,
       payload: id,
@@ -70,7 +70,7 @@ export const ShowSearchRecipe = () => {
                 <div
                   className="icon-wrapper-searchRecipe"
                   onClick={(e) => {
-                    e.stopPropagation(), handleClickHeart(rec._id);
+                    e.stopPropagation(), handleClickHeartSearch(rec._id);
                   }}
                 >
                   <IoMdHeart
