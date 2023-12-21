@@ -2,13 +2,24 @@ import { useContext } from "react";
 import { RecipeContext } from "../contexts/RecipeContext";
 import { useParams } from "react-router-dom";
 import "../scss/showOneRecipe.scss";
+import { IoMdHeart } from "react-icons/io";
+import { RecipeDispatchContext } from "../contexts/RecipeDispatchContext";
+import { ActionType } from "../reducers/RecipeReducer";
 
 export const ShowOneRecipe = () => {
   const recipes = useContext(RecipeContext);
+  const dispatch = useContext(RecipeDispatchContext);
 
   const params = useParams();
   const id = params.id;
   console.log(id);
+
+  const handleClickHeartOneRecipe = (id: string) => {
+    dispatch({
+      type: ActionType.TOGGLEHEART,
+      payload: id,
+    });
+  };
 
   const oneRecipe = recipes.map((rec) => {
     if (rec._id === id) {
@@ -26,9 +37,16 @@ export const ShowOneRecipe = () => {
             </div>
           </section>
           <section className="oneRecipe-wrapper-icon-favorite">
-            <div className="oneRecipe-icon-wrapper">
+            <div
+              className="oneRecipe-icon-wrapper"
+              onClick={() => {
+                handleClickHeartOneRecipe(rec._id);
+              }}
+            >
               <p>Spara</p>
-              <span className="material-symbols-outlined">favorite</span>
+              <IoMdHeart
+                className={rec.likedRecipe ? "heart-icon liked" : "heart-icon"}
+              />
             </div>
           </section>
 
