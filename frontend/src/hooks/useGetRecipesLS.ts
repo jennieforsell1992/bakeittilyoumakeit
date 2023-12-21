@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { IRecipe } from "../models/IRecipe";
 import axios from "axios";
-import { getAllRecipes } from "../services/RecipeApi";
 
 export const useGetRecipesLS = () => {
   const [recipes, setRecipes] = useState<IRecipe[]>([]);
@@ -10,7 +9,33 @@ export const useGetRecipesLS = () => {
     const recipesInLS = localStorage.getItem("recipes");
 
     if (recipesInLS) {
-      setRecipes(JSON.parse(recipesInLS));
+      axios
+        .get<IRecipe[]>("http://localhost:4000/api/v1/recipe")
+        .then((response) => {
+          const newRecipes = response.data;
+          console.log(newRecipes);
+
+          const parseLs = JSON.parse(recipesInLS);
+          console.log(parseLs);
+
+          const localStorageIds = parseLs.map((rec: IRecipe) => rec._id);
+          const idFromMongoDb = newRecipes.map((rec) => rec._id);
+
+          const missingObjects = idFromMongoDb.filter(
+            (id) => !localStorageIds.includes(id)
+          );
+
+          if (missingObjects.length > 0) {
+            const updatedRecipes = [
+              ...parseLs,
+              ...newRecipes.filter((rec) => missingObjects.includes(rec._id)),
+            ];
+            setRecipes(updatedRecipes);
+            localStorage.setItem("recipes", JSON.stringify(updatedRecipes));
+          } else {
+            setRecipes(parseLs);
+          }
+        });
     } else {
       axios
         .get<IRecipe[]>("http://localhost:4000/api/v1/recipe")
