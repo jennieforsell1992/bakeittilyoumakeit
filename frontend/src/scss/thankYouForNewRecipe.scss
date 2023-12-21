@@ -1,0 +1,24 @@
+@use "mixins" as mix;
+@use "variables" as var;
+.wrapper-container-thankyou {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .thankyou-wrapper {
+    margin-top: 40px;
+    background-color: var.$secondary-color;
+    border: dashed 40px white;
+    padding: 30px;
+    text-align: center;
+    gap: 20px;
+    .cupcake {
+      margin-top: 10px;
+      font-size: 1.5rem;
+    }
+    .cake {
+      margin-top: 10px;
+      font-size: 1.5rem;
+    }
+  }
+}
