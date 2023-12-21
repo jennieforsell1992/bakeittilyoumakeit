@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { IRecipe } from "../models/IRecipe";
 import axios from "axios";
+import { getAllRecipes } from "../services/RecipeApi";
 
 export const useGetRecipesLS = () => {
   const [recipes, setRecipes] = useState<IRecipe[]>([]);
