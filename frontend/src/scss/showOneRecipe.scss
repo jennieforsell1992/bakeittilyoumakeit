@@ -61,6 +61,14 @@
       flex-direction: row;
       border-radius: 50px;
       gap: 5px;
+
+      .heart-icon {
+        cursor: pointer;
+
+        &.liked {
+          color: var.$heart-color;
+        }
+      }
     }
   }
 
