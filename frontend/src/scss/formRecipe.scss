@@ -1,0 +1,70 @@
+@use "mixins" as mix;
+@use "variables" as var;
+.wrapper-form-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  .title-form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .form-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+
+    .wrapper-image-input {
+      border: 2px solid black;
+      border-radius: 5px;
+      padding: 10px;
+      background-color: var.$secondary-color;
+
+      input[type="file"] {
+        display: none;
+      }
+      .image-input {
+        align-self: center;
+      }
+    }
+
+    .wrapper-name-bakingTime {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .wrapper-ingredients {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      .wrapper-ingredients-title {
+        // max-width: 600px;
+        text-align: center;
+        padding: 20px;
+      }
+    }
+    .wrapper-description {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .form-submit-button-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

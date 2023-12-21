@@ -112,253 +112,308 @@ export const FormRecipe = () => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmitRecipe} encType="multipart/form-data">
-        <input
-          type="file"
-          name="imgUrl"
-          accept=".png, .jpg"
-          onChange={(e) => handleImage(e)}
-        />
-        <p>Vad heter bakelsen?</p>
-        <input
-          type="text"
-          name="name"
-          value={newRecipe.name}
-          onChange={handleChangeRecipe}
-          required
-        />
-        <p>Hur lång tid tar det?</p>
-        <input
-          type="text"
-          name="bakingTime"
-          value={newRecipe.bakingTime}
-          onChange={handleChangeRecipe}
-          required
-        />
-
-        {/*Ingredients*/}
-        <p>ingrediens 1</p>
-        <input
-          type="text"
-          name="IngredientOne"
-          value={newRecipe.allIngredients.IngredientOne}
-          onChange={handleChangeRecipeIngredients}
-          required
-        />
-        <p>ingrediens 2</p>
-        <input
-          type="text"
-          name="IngredientTwo"
-          value={newRecipe.allIngredients.IngredientTwo}
-          onChange={handleChangeRecipeIngredients}
-          required
-        />
-        <p>ingrediens 3</p>
-        <input
-          type="text"
-          name="IngredientThree"
-          value={newRecipe.allIngredients.IngredientThree}
-          onChange={handleChangeRecipeIngredients}
-        />
-        <p>ingrediens 4</p>
-        <input
-          type="text"
-          name="IngredientFour"
-          value={newRecipe.allIngredients.IngredientFour}
-          onChange={handleChangeRecipeIngredients}
-        />
-        <p>ingrediens 5</p>
-        <input
-          type="text"
-          name="IngredientFive"
-          value={newRecipe.allIngredients.IngredientFive}
-          onChange={handleChangeRecipeIngredients}
-        />
-        <p>ingrediens 6</p>
-        <input
-          type="text"
-          name="IngredientSix"
-          value={newRecipe.allIngredients.IngredientSix}
-          onChange={handleChangeRecipeIngredients}
-        />
-        <p>ingrediens 7</p>
-        <input
-          type="text"
-          name="IngredientSeven"
-          value={newRecipe.allIngredients.IngredientSeven}
-          onChange={handleChangeRecipeIngredients}
-        />
-        <p>ingrediens 8</p>
-        <input
-          type="text"
-          name="IngredientEight"
-          value={newRecipe.allIngredients.IngredientEight}
-          onChange={handleChangeRecipeIngredients}
-        />
-        <p>ingrediens 9</p>
-        <input
-          type="text"
-          name="IngredientNine"
-          value={newRecipe.allIngredients.IngredientNine}
-          onChange={handleChangeRecipeIngredients}
-        />
-        <p>ingrediens 10</p>
-        <input
-          type="text"
-          name="IngredientTen"
-          value={newRecipe.allIngredients.IngredientTen}
-          onChange={handleChangeRecipeIngredients}
-        />
-        <p>ingrediens 11</p>
-        <input
-          type="text"
-          name="IngredientEleven"
-          value={newRecipe.allIngredients.IngredientEleven}
-          onChange={handleChangeRecipeIngredients}
-        />
-        <p>ingrediens 12</p>
-        <input
-          type="text"
-          name="IngredientTwelve"
-          value={newRecipe.allIngredients.IngredientTwelve}
-          onChange={handleChangeRecipeIngredients}
-        />
-        <p>ingrediens 13</p>
-        <input
-          type="text"
-          name="IngredientThirteen"
-          value={newRecipe.allIngredients.IngredientThirteen}
-          onChange={handleChangeRecipeIngredients}
-        />
-        <p>ingrediens 14</p>
-        <input
-          type="text"
-          name="IngredientFourteen"
-          value={newRecipe.allIngredients.IngredientFourteen}
-          onChange={handleChangeRecipeIngredients}
-        />
-
-        {/*Description*/}
-        <p>Stega upp hur man bakar ditt recept</p>
-        <p>Steg 1</p>
-        <input
-          type="text"
-          name="descriptionOne"
-          value={newRecipe.description.descriptionOne}
-          onChange={handleChangeRecipeDescription}
-          required
-        />
-        <p>Steg 2</p>
-        <input
-          type="text"
-          name="descriptionTwo"
-          value={newRecipe.description.descriptionTwo}
-          onChange={handleChangeRecipeDescription}
-          required
-        />
-        <p>Steg 3</p>
-        <input
-          type="text"
-          name="descriptionThree"
-          value={newRecipe.description.descriptionThree}
-          onChange={handleChangeRecipeDescription}
-          required
-        />
-        <p>Steg 4</p>
-        <input
-          type="text"
-          name="descriptionFour"
-          value={newRecipe.description.descriptionFour}
-          onChange={handleChangeRecipeDescription}
-        />
-        <p>Steg 5</p>
-        <input
-          type="text"
-          name="descriptionFive"
-          value={newRecipe.description.descriptionFive}
-          onChange={handleChangeRecipeDescription}
-        />
-        <p>Steg 6</p>
-        <input
-          type="text"
-          name="descriptionSix"
-          value={newRecipe.description.descriptionSix}
-          onChange={handleChangeRecipeDescription}
-        />
-        <p>Steg 7</p>
-        <input
-          type="text"
-          name="descriptionSeven"
-          value={newRecipe.description.descriptionSeven}
-          onChange={handleChangeRecipeDescription}
-        />
-        <p>Steg 8</p>
-        <input
-          type="text"
-          name="descriptionEight"
-          value={newRecipe.description.descriptionEight}
-          onChange={handleChangeRecipeDescription}
-        />
-        <p>Steg 9</p>
-        <input
-          type="text"
-          name="descriptionNine"
-          value={newRecipe.description.descriptionNine}
-          onChange={handleChangeRecipeDescription}
-        />
-        <p>Steg 10</p>
-        <input
-          type="text"
-          name="descriptionTen"
-          value={newRecipe.description.descriptionTen}
-          onChange={handleChangeRecipeDescription}
-        />
-        <p>Steg 11</p>
-        <input
-          type="text"
-          name="descriptionEleven"
-          value={newRecipe.description.descriptionEleven}
-          onChange={handleChangeRecipeDescription}
-        />
-        <p>Steg 12</p>
-        <input
-          type="text"
-          name="descriptionTwelve"
-          value={newRecipe.description.descriptionTwelve}
-          onChange={handleChangeRecipeDescription}
-        />
-        <p>Steg 13</p>
-        <input
-          type="text"
-          name="descriptionThirteen"
-          value={newRecipe.description.descriptionThirteen}
-          onChange={handleChangeRecipeDescription}
-        />
-        <p>Steg 14</p>
-        <input
-          type="text"
-          name="descriptionFourteen"
-          value={newRecipe.description.descriptionFourteen}
-          onChange={handleChangeRecipeDescription}
-        />
-        <p>Steg 15</p>
-        <input
-          type="text"
-          name="descriptionFifteen"
-          value={newRecipe.description.descriptionFifteen}
-          onChange={handleChangeRecipeDescription}
-        />
-        <p>Steg 16</p>
-        <input
-          type="text"
-          name="descriptionSixteen"
-          value={newRecipe.description.descriptionSixteen}
-          onChange={handleChangeRecipeDescription}
-        />
-
-        <button type="submit">Skicka upp ditt recept!</button>
+    <div className="wrapper-form-title">
+      <div className="title-form-wrapper">
+        <h3>Skapa nytt recept</h3>
+      </div>
+      <form
+        onSubmit={handleSubmitRecipe}
+        encType="multipart/form-data"
+        className="form-wrapper"
+      >
+        <label className="wrapper-image-input">
+          Välj bild
+          <input
+            className="image-input"
+            type="file"
+            name="imgUrl"
+            accept=".png, .jpg"
+            onChange={(e) => handleImage(e)}
+          />
+        </label>
+        <section className="wrapper-name-bakingTime">
+          <label>Vad heter bakelsen?</label>
+          <input
+            className="input-box"
+            type="text"
+            name="name"
+            value={newRecipe.name}
+            onChange={handleChangeRecipe}
+            required
+          />
+          <label>Hur lång tid tar det?</label>
+          <input
+            className="input-box"
+            type="text"
+            name="bakingTime"
+            value={newRecipe.bakingTime}
+            onChange={handleChangeRecipe}
+            required
+          />
+        </section>
+        <section className="wrapper-ingredients">
+          <div className="wrapper-ingredients-title">
+            <h3 className="ingredients-info-text">
+              skriv in varje ingrediens i de olika fälten och de olika måten
+            </h3>
+            <p>t.ex 1dl mjölk, 1tsk bakpulver</p>
+          </div>
+          {/*Ingredients*/}
+          <label>ingrediens 1</label>
+          <input
+            className="input-box"
+            type="text"
+            name="IngredientOne"
+            value={newRecipe.allIngredients.IngredientOne}
+            onChange={handleChangeRecipeIngredients}
+            required
+          />
+          <label>ingrediens 2</label>
+          <input
+            className="input-box"
+            type="text"
+            name="IngredientTwo"
+            value={newRecipe.allIngredients.IngredientTwo}
+            onChange={handleChangeRecipeIngredients}
+            required
+          />
+          <label>ingrediens 3</label>
+          <input
+            className="input-box"
+            type="text"
+            name="IngredientThree"
+            value={newRecipe.allIngredients.IngredientThree}
+            onChange={handleChangeRecipeIngredients}
+          />
+          <label>ingrediens 4</label>
+          <input
+            className="input-box"
+            type="text"
+            name="IngredientFour"
+            value={newRecipe.allIngredients.IngredientFour}
+            onChange={handleChangeRecipeIngredients}
+          />
+          <label>ingrediens 5</label>
+          <input
+            className="input-box"
+            type="text"
+            name="IngredientFive"
+            value={newRecipe.allIngredients.IngredientFive}
+            onChange={handleChangeRecipeIngredients}
+          />
+          <label>ingrediens 6</label>
+          <input
+            className="input-box"
+            type="text"
+            name="IngredientSix"
+            value={newRecipe.allIngredients.IngredientSix}
+            onChange={handleChangeRecipeIngredients}
+          />
+          <label>ingrediens 7</label>
+          <input
+            className="input-box"
+            type="text"
+            name="IngredientSeven"
+            value={newRecipe.allIngredients.IngredientSeven}
+            onChange={handleChangeRecipeIngredients}
+          />
+          <label>ingrediens 8</label>
+          <input
+            className="input-box"
+            type="text"
+            name="IngredientEight"
+            value={newRecipe.allIngredients.IngredientEight}
+            onChange={handleChangeRecipeIngredients}
+          />
+          <label>ingrediens 9</label>
+          <input
+            className="input-box"
+            type="text"
+            name="IngredientNine"
+            value={newRecipe.allIngredients.IngredientNine}
+            onChange={handleChangeRecipeIngredients}
+          />
+          <label>ingrediens 10</label>
+          <input
+            className="input-box"
+            type="text"
+            name="IngredientTen"
+            value={newRecipe.allIngredients.IngredientTen}
+            onChange={handleChangeRecipeIngredients}
+          />
+          <label>ingrediens 11</label>
+          <input
+            className="input-box"
+            type="text"
+            name="IngredientEleven"
+            value={newRecipe.allIngredients.IngredientEleven}
+            onChange={handleChangeRecipeIngredients}
+          />
+          <label>ingrediens 12</label>
+          <input
+            className="input-box"
+            type="text"
+            name="IngredientTwelve"
+            value={newRecipe.allIngredients.IngredientTwelve}
+            onChange={handleChangeRecipeIngredients}
+          />
+          <label>ingrediens 13</label>
+          <input
+            className="input-box"
+            type="text"
+            name="IngredientThirteen"
+            value={newRecipe.allIngredients.IngredientThirteen}
+            onChange={handleChangeRecipeIngredients}
+          />
+          <label>ingrediens 14</label>
+          <input
+            className="input-box"
+            type="text"
+            name="IngredientFourteen"
+            value={newRecipe.allIngredients.IngredientFourteen}
+            onChange={handleChangeRecipeIngredients}
+          />
+        </section>
+        <section className="wrapper-description">
+          {/*Description*/}
+          <h3>Stega upp hur man bakar ditt recept</h3>
+          <p>t.ex sätt på ugnen på 200grader</p>
+          <label>Steg 1</label>
+          <input
+            className="input-box"
+            type="text"
+            name="descriptionOne"
+            value={newRecipe.description.descriptionOne}
+            onChange={handleChangeRecipeDescription}
+            required
+          />
+          <label>Steg 2</label>
+          <input
+            className="input-box"
+            type="text"
+            name="descriptionTwo"
+            value={newRecipe.description.descriptionTwo}
+            onChange={handleChangeRecipeDescription}
+            required
+          />
+          <label>Steg 3</label>
+          <input
+            className="input-box"
+            type="text"
+            name="descriptionThree"
+            value={newRecipe.description.descriptionThree}
+            onChange={handleChangeRecipeDescription}
+            required
+          />
+          <label>Steg 4</label>
+          <input
+            className="input-box"
+            type="text"
+            name="descriptionFour"
+            value={newRecipe.description.descriptionFour}
+            onChange={handleChangeRecipeDescription}
+          />
+          <label>Steg 5</label>
+          <input
+            className="input-box"
+            type="text"
+            name="descriptionFive"
+            value={newRecipe.description.descriptionFive}
+            onChange={handleChangeRecipeDescription}
+          />
+          <label>Steg 6</label>
+          <input
+            className="input-box"
+            type="text"
+            name="descriptionSix"
+            value={newRecipe.description.descriptionSix}
+            onChange={handleChangeRecipeDescription}
+          />
+          <label>Steg 7</label>
+          <input
+            className="input-box"
+            type="text"
+            name="descriptionSeven"
+            value={newRecipe.description.descriptionSeven}
+            onChange={handleChangeRecipeDescription}
+          />
+          <label>Steg 8</label>
+          <input
+            className="input-box"
+            type="text"
+            name="descriptionEight"
+            value={newRecipe.description.descriptionEight}
+            onChange={handleChangeRecipeDescription}
+          />
+          <label>Steg 9</label>
+          <input
+            className="input-box"
+            type="text"
+            name="descriptionNine"
+            value={newRecipe.description.descriptionNine}
+            onChange={handleChangeRecipeDescription}
+          />
+          <label>Steg 10</label>
+          <input
+            className="input-box"
+            type="text"
+            name="descriptionTen"
+            value={newRecipe.description.descriptionTen}
+            onChange={handleChangeRecipeDescription}
+          />
+          <label>Steg 11</label>
+          <input
+            className="input-box"
+            type="text"
+            name="descriptionEleven"
+            value={newRecipe.description.descriptionEleven}
+            onChange={handleChangeRecipeDescription}
+          />
+          <label>Steg 12</label>
+          <input
+            className="input-box"
+            type="text"
+            name="descriptionTwelve"
+            value={newRecipe.description.descriptionTwelve}
+            onChange={handleChangeRecipeDescription}
+          />
+          <label>Steg 13</label>
+          <input
+            className="input-box"
+            type="text"
+            name="descriptionThirteen"
+            value={newRecipe.description.descriptionThirteen}
+            onChange={handleChangeRecipeDescription}
+          />
+          <label>Steg 14</label>
+          <input
+            className="input-box"
+            type="text"
+            name="descriptionFourteen"
+            value={newRecipe.description.descriptionFourteen}
+            onChange={handleChangeRecipeDescription}
+          />
+          <label>Steg 15</label>
+          <input
+            className="input-box"
+            type="text"
+            name="descriptionFifteen"
+            value={newRecipe.description.descriptionFifteen}
+            onChange={handleChangeRecipeDescription}
+          />
+          <label>Steg 16</label>
+          <input
+            className="input-box"
+            type="text"
+            name="descriptionSixteen"
+            value={newRecipe.description.descriptionSixteen}
+            onChange={handleChangeRecipeDescription}
+          />
+        </section>
+        <div className="form-submit-button-wrapper">
+          <button type="submit">Skicka upp ditt recept!</button>
+        </div>
       </form>
-    </>
+    </div>
   );
 };
