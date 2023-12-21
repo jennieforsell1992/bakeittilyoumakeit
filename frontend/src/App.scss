@@ -7,6 +7,10 @@
 @use "./scss/showLikedRecipes.scss";
 @use "./scss//showSearchRecipe.scss";
 @use "./scss//formRecipe.scss";
+@use "./scss/thankYouForNewRecipe.scss";
+@use "./scss/mixins" as mix;
+@use "./scss/variables" as var;
+
 * {
   margin: 0;
   padding: 0;
