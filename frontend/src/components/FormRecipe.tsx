@@ -120,7 +120,7 @@ export const FormRecipe = () => {
 
   return (
     <div>
-      {showThankYouForRecipe ? (
+      {!showThankYouForRecipe ? (
         <div className="wrapper-form-title">
           <div className="title-form-wrapper">
             <MdOutlineCookie className="cookie-icon" />
