@@ -16,6 +16,10 @@ export const HamburgerMenu = () => {
     navigate("/createnewrecipe");
   };
 
+  const navigateToHome = () => {
+    navigate("/");
+  };
+
   return (
     <div className={`hamburger-menu ${isOpen ? "open" : ""}`}>
       <div className="hamburger-icon" onClick={toggleMenu}>
@@ -25,6 +29,9 @@ export const HamburgerMenu = () => {
       </div>
 
       <ul className={`links ${isOpen ? "open" : ""}`}>
+        <li className="li-item" onClick={navigateToHome}>
+          <button>Hem</button>
+        </li>
         <li className="li-item" onClick={navigateToAllRecipes}>
           <button>Alla recept</button>
         </li>
