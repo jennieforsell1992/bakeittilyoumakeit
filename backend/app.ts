@@ -18,9 +18,9 @@ app.use((req, res, next) => {
 
 app.use(
   cors({
-    // origin: "http://localhost:5173",
-    origin:
-      "https://bakeittilyoumakeit-kkgz-fsmss3b2q-jennie-forsells-projects.vercel.app",
+    origin: "http://localhost:5173",
+    // origin:
+    //   "https://bakeittilyoumakeit-kkgz-fsmss3b2q-jennie-forsells-projects.vercel.app",
     methods: ["GET", "POST"],
   })
 );
