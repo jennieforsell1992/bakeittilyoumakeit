@@ -14,9 +14,13 @@ export const Header = () => {
     navigate("/likedrecipe");
   };
 
+  const navigateToHome = () => {
+    navigate("/");
+  };
+
   return (
     <header className="header">
-      <div className="logo-wrapper">
+      <div className="logo-wrapper" onClick={navigateToHome}>
         <p className="logo">Bake it til you make it</p>
       </div>
       <div className="header-wrapper">
