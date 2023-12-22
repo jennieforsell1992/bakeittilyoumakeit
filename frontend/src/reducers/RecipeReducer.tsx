@@ -1,6 +1,4 @@
-import { useGetRecipesLS } from "../hooks/useGetRecipesLS";
 import { IRecipe } from "../models/IRecipe";
-import { updateRecipe } from "../services/RecipeApi";
 
 export interface IAction {
   type: ActionType;
