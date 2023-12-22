@@ -21,7 +21,7 @@ app.use(
     // origin: "http://localhost:5173",
     origin:
       "https://bakeittilyoumakeit-gneeqshrc-jennie-forsells-projects.vercel.app",
-    methods: ["GET", "POST", "PUT"],
+    methods: ["GET", "POST"],
   })
 );
 
