@@ -132,20 +132,19 @@ export const FormRecipe = () => {
             encType="multipart/form-data"
             className="form-wrapper"
           >
-            <div className="wrapper-image-title-icon">
-              <IoIosCamera className="camera" />
-              {/* <label>välj bild</label> */}
-              <label className="wrapper-image-input">
-                <input
-                  className="image-input"
-                  type="file"
-                  name="imgUrl"
-                  accept=".png, .jpg"
-                  onChange={(e) => handleImage(e)}
-                />
-              </label>
-            </div>
             <section className="wrapper-name-bakingTime">
+              <div className="wrapper-image-title-icon">
+                <IoIosCamera className="camera" />
+                <label className="wrapper-image-input">
+                  <input
+                    className="image-input"
+                    type="file"
+                    name="imgUrl"
+                    accept=".png, .jpg"
+                    onChange={(e) => handleImage(e)}
+                  />
+                </label>
+              </div>
               <label>Vad heter bakelsen?</label>
               <input
                 className="input-box"
