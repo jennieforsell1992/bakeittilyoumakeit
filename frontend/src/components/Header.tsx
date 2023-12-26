@@ -6,13 +6,13 @@ import "../scss/header.scss";
 
 export const Header = () => {
   const navigate = useNavigate();
-  const handleClickSearch = () => {
-    navigate("/searchrecipe");
-  };
+  // const handleClickSearch = () => {
+  //   navigate("/searchrecipe");
+  // };
 
-  const handleClickHeart = () => {
-    navigate("/likedrecipe");
-  };
+  // const handleClickHeart = () => {
+  //   navigate("/likedrecipe");
+  // };
 
   const navigateToHome = () => {
     navigate("/");
@@ -24,12 +24,12 @@ export const Header = () => {
         <p className="logo">Bake it til you make it</p>
       </div>
       <div className="header-wrapper">
-        <button className="icon-wrapper-search" onClick={handleClickSearch}>
+        <a className="icon-wrapper-search" href={"/searchrecipe"}>
           <IoIosSearch className="material-symbols-outlined" />
-        </button>
-        <button className="icon-wrapper-heart" onClick={handleClickHeart}>
+        </a>
+        <a className="icon-wrapper-heart" href={"/likedrecipe"}>
           <IoMdHeartEmpty className="material-symbols-outlined" />
-        </button>
+        </a>
         <HamburgerMenu></HamburgerMenu>
       </div>
     </header>

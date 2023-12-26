@@ -1,24 +1,24 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 export const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const navigateToAllRecipes = () => {
-    navigate("/allrecipes");
-  };
-  const navigateToCreateRecipe = () => {
-    navigate("/createnewrecipe");
-  };
+  // const navigateToAllRecipes = () => {
+  //   navigate("/allrecipes");
+  // };
+  // const navigateToCreateRecipe = () => {
+  //   navigate("/createnewrecipe");
+  // };
 
-  const navigateToHome = () => {
-    navigate("/");
-  };
+  // const navigateToHome = () => {
+  //   navigate("/");
+  // };
 
   return (
     <div className={`hamburger-menu ${isOpen ? "open" : ""}`}>
@@ -29,14 +29,14 @@ export const HamburgerMenu = () => {
       </div>
 
       <ul className={`links ${isOpen ? "open" : ""}`}>
-        <li className="li-item" onClick={navigateToHome}>
-          <button>Hem</button>
+        <li className="li-item">
+          <a href={"/"}>Hem</a>
         </li>
-        <li className="li-item" onClick={navigateToAllRecipes}>
-          <button>Alla recept</button>
+        <li className="li-item">
+          <a href={"/allrecipes"}>All Recept</a>
         </li>
-        <li className="li-item" onClick={navigateToCreateRecipe}>
-          <button>Lägg till nytt recept</button>
+        <li className="li-item">
+          <a href="/createnewrecipe">Lägg till nytt recept</a>
         </li>
       </ul>
     </div>
