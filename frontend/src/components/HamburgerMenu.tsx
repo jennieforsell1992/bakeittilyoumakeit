@@ -33,7 +33,7 @@ export const HamburgerMenu = () => {
           <a href={"/"}>Hem</a>
         </li>
         <li className="li-item">
-          <a href={"/allrecipes"}>All Recept</a>
+          <a href={"/allrecipes"}>Alla recept</a>
         </li>
         <li className="li-item">
           <a href="/createnewrecipe">Lägg till nytt recept</a>

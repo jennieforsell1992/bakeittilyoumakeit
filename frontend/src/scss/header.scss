@@ -19,6 +19,7 @@
     .logo {
       font-family: "Zeyada", cursive;
       font-size: 1.5rem;
+      cursor: pointer;
       @include mix.desktop {
         font-size: 2.5rem;
       }
@@ -38,6 +39,28 @@
       top: 0;
       margin-top: -5px;
       margin-right: 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+    a:visited {
+      text-decoration: none;
+      color: #242424;
+    }
+    a:focus {
+      text-decoration: none;
+      color: #242424;
+    }
+    a:active {
+      text-decoration: none;
+      color: #242424;
+    }
+
+    .material-symbols-outlined {
+      @include mix.desktop {
+        font-size: 20px;
+      }
     }
 
     @include mix.desktop {
