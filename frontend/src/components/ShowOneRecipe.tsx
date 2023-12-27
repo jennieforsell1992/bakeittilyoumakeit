@@ -21,10 +21,10 @@ export const ShowOneRecipe = () => {
     });
   };
 
-  const oneRecipe = recipes.map((rec) => {
+  const oneRecipe = recipes.map((rec, index) => {
     if (rec._id === id) {
       return (
-        <article className="oneRecipe-wrapper">
+        <article className="oneRecipe-wrapper" key={index}>
           <section className="oneRecipe-wrapper-title-baking-img">
             <h3 className="oneRecipe-title">{rec.name}</h3>
             <div className="oneRecipe-wrapper-schedule">
@@ -34,58 +34,62 @@ export const ShowOneRecipe = () => {
 
             <div className="oneRecipe-wrapper-img">
               <img className="oneRecipe-img" src={rec.imgUrl} alt={rec.name} />
-            </div>
-          </section>
-          <section className="oneRecipe-wrapper-icon-favorite">
-            <div
-              className="oneRecipe-icon-wrapper"
-              onClick={() => {
-                handleClickHeartOneRecipe(rec._id);
-              }}
-            >
-              <p>Spara</p>
-              <IoMdHeart
-                className={rec.likedRecipe ? "heart-icon liked" : "heart-icon"}
-              />
+              <div
+                className="oneRecipe-icon-wrapper"
+                onClick={() => {
+                  handleClickHeartOneRecipe(rec._id);
+                }}
+              >
+                <p>Spara</p>
+                <IoMdHeart
+                  className={
+                    rec.likedRecipe ? "heart-icon liked" : "heart-icon"
+                  }
+                />
+              </div>
             </div>
           </section>
 
           <section className="oneRecipe-wrapper-ing-desc">
             <article className="oneRecipe-wrapper-allIngredients">
               <h4 className="oneRecipe-ingredient-title">ingredienser</h4>
-              <p>{rec.allIngredients.IngredientOne}</p>
-              <p>{rec.allIngredients.IngredientTwo}</p>
-              <p>{rec.allIngredients.IngredientThree}</p>
-              <p>{rec.allIngredients.IngredientFour}</p>
-              <p>{rec.allIngredients.IngredientFive}</p>
-              <p>{rec.allIngredients.IngredientSix}</p>
-              <p>{rec.allIngredients.IngredientSeven}</p>
-              <p>{rec.allIngredients.IngredientEight}</p>
-              <p>{rec.allIngredients.IngredientNine}</p>
-              <p>{rec.allIngredients.IngredientTen}</p>
-              <p>{rec.allIngredients.IngredientEleven}</p>
-              <p>{rec.allIngredients.IngredientTwelve}</p>
-              <p>{rec.allIngredients.IngredientThirteen}</p>
-              <p>{rec.allIngredients.IngredientFourteen}</p>
+              <ul className="showIngredients">
+                <li>{rec.allIngredients.IngredientOne}</li>
+                <li>{rec.allIngredients.IngredientTwo}</li>
+                <li>{rec.allIngredients.IngredientThree}</li>
+                <li>{rec.allIngredients.IngredientFour}</li>
+                <li>{rec.allIngredients.IngredientFive}</li>
+                <li>{rec.allIngredients.IngredientSix}</li>
+                <li>{rec.allIngredients.IngredientSeven}</li>
+                <li>{rec.allIngredients.IngredientEight}</li>
+                <li>{rec.allIngredients.IngredientNine}</li>
+                <li>{rec.allIngredients.IngredientTen}</li>
+                <li>{rec.allIngredients.IngredientEleven}</li>
+                <li>{rec.allIngredients.IngredientTwelve}</li>
+                <li>{rec.allIngredients.IngredientThirteen}</li>
+                <li>{rec.allIngredients.IngredientFourteen}</li>
+              </ul>
             </article>
             <article className="oneRecipe-wrapper-description">
               <h4 className="oneRecipe-desc-title">Gör såhär</h4>
-              <p>{rec.description.descriptionOne}</p>
-              <p>{rec.description.descriptionTwo}</p>
-              <p>{rec.description.descriptionThree}</p>
-              <p>{rec.description.descriptionFour}</p>
-              <p>{rec.description.descriptionFive}</p>
-              <p>{rec.description.descriptionSix}</p>
-              <p>{rec.description.descriptionSeven}</p>
-              <p>{rec.description.descriptionEight}</p>
-              <p>{rec.description.descriptionNine}</p>
-              <p>{rec.description.descriptionTen}</p>
-              <p>{rec.description.descriptionEleven}</p>
-              <p>{rec.description.descriptionTwelve}</p>
-              <p>{rec.description.descriptionThirteen}</p>
-              <p>{rec.description.descriptionFourteen}</p>
-              <p>{rec.description.descriptionFifteen}</p>
-              <p>{rec.description.descriptionSixteen}</p>
+              <ul className="showDescription">
+                <li>{rec.description.descriptionOne}</li>
+                <li>{rec.description.descriptionTwo}</li>
+                <li>{rec.description.descriptionThree}</li>
+                <li>{rec.description.descriptionFour}</li>
+                <li>{rec.description.descriptionFive}</li>
+                <li>{rec.description.descriptionSix}</li>
+                <li>{rec.description.descriptionSeven}</li>
+                <li>{rec.description.descriptionEight}</li>
+                <li>{rec.description.descriptionNine}</li>
+                <li>{rec.description.descriptionTen}</li>
+                <li>{rec.description.descriptionEleven}</li>
+                <li>{rec.description.descriptionTwelve}</li>
+                <li>{rec.description.descriptionThirteen}</li>
+                <li>{rec.description.descriptionFourteen}</li>
+                <li>{rec.description.descriptionFifteen}</li>
+                <li>{rec.description.descriptionSixteen}</li>
+              </ul>
             </article>
           </section>
         </article>

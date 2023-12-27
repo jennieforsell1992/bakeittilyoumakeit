@@ -38,7 +38,7 @@ export const RecipeReducer = (state: IRecipe[], action: IAction) => {
               ...recipe.description,
             },
             allIngredients: {
-              ...recipe.description,
+              ...recipe.allIngredients,
             },
           };
 
