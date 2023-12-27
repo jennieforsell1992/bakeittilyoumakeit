@@ -62,6 +62,9 @@
     .allRecipe-wrapper-nameWrapper {
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
 
       .allRecipe-name {
         font-family: "Rethink Sans", sans-serif;
