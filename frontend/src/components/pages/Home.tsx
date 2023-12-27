@@ -13,7 +13,8 @@ export const Home = () => {
           <p className="front-recipe-title">Veckans recept</p>
           <div className="front-recipe-text-wrapper">
             <span className="front-recipe-text">
-              Crossaint med glasyr och walnöt
+              Crossaint med glasyr och walnöt, riktig festlig bakelse att bjuda
+              på!
             </span>
           </div>
           <div className="front-recipe-button-wrapper">
