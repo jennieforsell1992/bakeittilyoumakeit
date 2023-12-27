@@ -10,6 +10,8 @@
   margin-bottom: 15px;
   @include mix.desktop {
     flex-direction: row;
+    margin-left: 100px;
+    margin-right: 100px;
   }
 
   .oneRecipe-wrapper-title-baking-img {
@@ -19,12 +21,12 @@
     align-items: center;
     margin-top: 15px;
     gap: 10px;
+    @include mix.desktop {
+    }
 
     .oneRecipe-title {
       font-family: "Rethink Sans", sans-serif;
       font-size: 2.2rem;
-      @include mix.desktop {
-      }
     }
 
     .oneRecipe-wrapper-schedule {
@@ -36,64 +38,85 @@
     }
 
     .oneRecipe-wrapper-img {
+      display: flex;
+      position: relative;
+      width: 100%;
       @include mix.desktop {
+        width: 40vw;
+        height: 70vh;
       }
+
       .oneRecipe-img {
         border-radius: 5px;
 
+        height: auto;
+        display: block;
+        width: 100%;
+
         @include mix.desktop {
-          width: 500px;
-          height: 500px;
+          // width: 500px;
+          // height: 500px;
         }
       }
-    }
-  }
-  .oneRecipe-wrapper-icon-favorite {
-    @include mix.desktop {
-      margin-top: -100px;
-    }
-
-    .oneRecipe-icon-wrapper {
-      background-color: var.$heart-background;
-      padding: 15px;
-      width: 100px;
-      display: flex;
-      flex-direction: row;
-      border-radius: 50px;
-      gap: 5px;
-
-      .heart-icon {
+      .oneRecipe-icon-wrapper {
+        background-color: var.$secondary-color;
+        padding: 15px;
+        width: 100px;
+        display: flex;
+        flex-direction: row;
+        border-radius: 50px;
+        gap: 5px;
         cursor: pointer;
 
-        &.liked {
-          color: var.$heart-color;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+
+        .heart-icon {
+          font-size: 20px;
+
+          &.liked {
+            color: var.$heart-color;
+          }
         }
       }
     }
   }
+}
 
-  .oneRecipe-wrapper-ing-desc {
-    background-color: var.$secondary-color;
-    display: flex;
+.oneRecipe-wrapper-ing-desc {
+  background-color: var.$secondary-color;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 30px;
+  border-radius: 5px;
+  @include mix.desktop {
+    // padding: 70px;
+    // top: 300px;
+    // margin-left: -200px;
+    margin-top: 100px;
     flex-direction: row;
-    gap: 50px;
-    padding: 30px;
-    border-radius: 5px;
-    @include mix.desktop {
-      padding: 70px;
-      // margin-left: -200px;
-      // margin-top: 245px;
-    }
+    // gap: 120px;
+  }
 
-    .oneRecipe-wrapper-allIngredients {
-      .oneRecipe-ingredient-title {
-        font-weight: bold;
-      }
+  .oneRecipe-wrapper-allIngredients {
+    @include mix.desktop {
     }
-    .oneRecipe-wrapper-description {
-      .oneRecipe-desc-title {
-        font-weight: bold;
-      }
+    .oneRecipe-ingredient-title {
+      font-weight: bold;
+    }
+    .showIngredients {
+      list-style: none;
+      white-space: nowrap;
+    }
+  }
+  .oneRecipe-wrapper-description {
+    .oneRecipe-desc-title {
+      font-weight: bold;
+    }
+    .showDescription {
+      list-style: none;
     }
   }
 }
