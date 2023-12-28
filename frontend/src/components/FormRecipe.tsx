@@ -1,10 +1,11 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { IRecipe } from "../models/IRecipe";
 import { createNewRecipe } from "../services/RecipeApi";
 import { IoIosCamera } from "react-icons/io";
 import { LuCandy } from "react-icons/lu";
 import { MdOutlineCookie } from "react-icons/md";
 import { ThankYouForNewRecipe } from "./ThankYouForNewRecipe";
+import { IFormError } from "../models/IFormError";
 
 export const FormRecipe = () => {
   const [newRecipe, setNewRecipe] = useState<IRecipe>({
@@ -48,6 +49,26 @@ export const FormRecipe = () => {
       IngredientFourteen: "",
     },
   });
+  const [errors, setErrors] = useState<IFormError>({
+    inputRequired: false,
+    inputRequiredMessage: "",
+  });
+
+  const [showName, setShowName] = useState(false);
+  const [showBakingTime, setShowBakingTime] = useState(false);
+  const [showFirstIngredient, setShowFirstIngredient] = useState(false);
+  const [showSecondIngredient, setShowSecondIngredient] = useState(false);
+  const [showFirstDescription, setShowFirstDescription] = useState(false);
+  const [showSecondDescription, setShowSecondDescription] = useState(false);
+
+  useEffect(() => {
+    validateName();
+    validateBakingTime();
+    validateFirstIngredient();
+    validateSecondIngredient();
+    validateFirstDescription();
+    validateSecondDescription();
+  }, [newRecipe]);
 
   const [showThankYouForRecipe, setShowThankYouForRecipe] = useState(false);
 
@@ -118,6 +139,95 @@ export const FormRecipe = () => {
     setShowThankYouForRecipe(true);
   };
 
+  const validateName = (): boolean => {
+    if (newRecipe.name === "") {
+      setErrors({
+        ...errors,
+        inputRequired: true,
+        inputRequiredMessage: "detta fält är obligatoriskt",
+      });
+      setShowName(true);
+    } else {
+      setErrors({ ...errors, inputRequired: false });
+      setShowName(false);
+    }
+    return false;
+  };
+
+  const validateBakingTime = (): boolean => {
+    if (newRecipe.bakingTime === "") {
+      setErrors({
+        ...errors,
+        inputRequired: true,
+        inputRequiredMessage: "detta fält är obligatoriskt",
+      });
+      setShowBakingTime(true);
+    } else {
+      setErrors({ ...errors, inputRequired: false });
+      setShowBakingTime(false);
+    }
+    return false;
+  };
+
+  const validateFirstIngredient = (): boolean => {
+    if (newRecipe.allIngredients.IngredientOne === "") {
+      setErrors({
+        ...errors,
+        inputRequired: true,
+        inputRequiredMessage: "detta fält är obligatoriskt",
+      });
+      setShowFirstIngredient(true);
+    } else {
+      setErrors({ ...errors, inputRequired: false });
+      setShowFirstIngredient(false);
+    }
+    return false;
+  };
+
+  const validateSecondIngredient = (): boolean => {
+    if (newRecipe.allIngredients.IngredientTwo === "") {
+      setErrors({
+        ...errors,
+        inputRequired: true,
+        inputRequiredMessage: "detta fält är obligatoriskt",
+      });
+      setShowSecondIngredient(true);
+    } else {
+      setErrors({ ...errors, inputRequired: false });
+      setShowSecondIngredient(false);
+    }
+    return false;
+  };
+  const validateFirstDescription = (): boolean => {
+    if (newRecipe.description.descriptionOne === "") {
+      setErrors({
+        ...errors,
+        inputRequired: true,
+        inputRequiredMessage: "detta fält är obligatoriskt",
+      });
+      setShowFirstDescription(true);
+    } else {
+      setErrors({ ...errors, inputRequired: false });
+      setShowFirstDescription(false);
+    }
+    return false;
+  };
+
+  const validateSecondDescription = (): boolean => {
+    if (newRecipe.description.descriptionTwo === "") {
+      setErrors({
+        ...errors,
+        inputRequired: true,
+        inputRequiredMessage: "detta fält är obligatoriskt",
+      });
+      setShowSecondDescription(true);
+    } else {
+      setErrors({ ...errors, inputRequired: false });
+      setShowSecondDescription(false);
+    }
+    return false;
+  };
+
   return (
     <div>
       {!showThankYouForRecipe ? (
@@ -155,6 +265,9 @@ export const FormRecipe = () => {
                 onChange={handleChangeRecipe}
                 required
               />
+              {showName && errors.inputRequired && (
+                <p className="error">{errors.inputRequiredMessage}</p>
+              )}
               <label>Hur lång tid tar det?</label>
               <input
                 className="input-box"
@@ -165,6 +278,9 @@ export const FormRecipe = () => {
                 onChange={handleChangeRecipe}
                 required
               />
+              {showBakingTime && errors.inputRequired && (
+                <p className="error">{errors.inputRequiredMessage}</p>
+              )}
             </section>
             <div className="wrapper-ingredients-description">
               <section className="wrapper-ingredients">
@@ -185,6 +301,9 @@ export const FormRecipe = () => {
                   onChange={handleChangeRecipeIngredients}
                   required
                 />
+                {showFirstIngredient && errors.inputRequired && (
+                  <p className="error">{errors.inputRequiredMessage}</p>
+                )}
                 <label>ingrediens 2</label>
                 <input
                   className="input-box"
@@ -194,6 +313,9 @@ export const FormRecipe = () => {
                   onChange={handleChangeRecipeIngredients}
                   required
                 />
+                {showSecondIngredient && errors.inputRequired && (
+                  <p className="error">{errors.inputRequiredMessage}</p>
+                )}
                 <label>ingrediens 3</label>
                 <input
                   className="input-box"
@@ -307,6 +429,9 @@ export const FormRecipe = () => {
                   onChange={handleChangeRecipeDescription}
                   required
                 />
+                {showFirstDescription && errors.inputRequired && (
+                  <p className="error">{errors.inputRequiredMessage}</p>
+                )}
                 <label>Steg 2</label>
                 <input
                   className="input-box"
@@ -316,6 +441,9 @@ export const FormRecipe = () => {
                   onChange={handleChangeRecipeDescription}
                   required
                 />
+                {showSecondDescription && errors.inputRequired && (
+                  <p className="error">{errors.inputRequiredMessage}</p>
+                )}
                 <label>Steg 3</label>
                 <input
                   className="input-box"
