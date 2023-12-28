@@ -6,13 +6,6 @@ import "../scss/header.scss";
 
 export const Header = () => {
   const navigate = useNavigate();
-  // const handleClickSearch = () => {
-  //   navigate("/searchrecipe");
-  // };
-
-  // const handleClickHeart = () => {
-  //   navigate("/likedrecipe");
-  // };
 
   const navigateToHome = () => {
     navigate("/");
