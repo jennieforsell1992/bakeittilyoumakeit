@@ -18,10 +18,16 @@ export const Header = () => {
       </div>
       <div className="header-wrapper">
         <a className="icon-wrapper-search" href={"/searchrecipe"}>
-          <IoIosSearch className="material-symbols-outlined" />
+          <IoIosSearch
+            className="material-symbols-outlined"
+            data-testid="search-icon"
+          />
         </a>
         <a className="icon-wrapper-heart" href={"/likedrecipe"}>
-          <IoMdHeartEmpty className="material-symbols-outlined" />
+          <IoMdHeartEmpty
+            className="material-symbols-outlined"
+            data-testid="heart-icon"
+          />
         </a>
         <HamburgerMenu></HamburgerMenu>
       </div>
