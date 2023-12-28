@@ -90,6 +90,9 @@
         border-radius: 10px;
         font-family: "Rethink Sans", sans-serif;
       }
+      .error {
+        color: red;
+      }
     }
 
     .wrapper-ingredients-description {
@@ -124,6 +127,9 @@
           border-radius: 10px;
           font-family: "Rethink Sans", sans-serif;
         }
+        .error {
+          color: red;
+        }
       }
       .wrapper-description {
         display: flex;
@@ -142,6 +148,9 @@
           font-size: 1.1rem;
           border-radius: 10px;
           font-family: "Rethink Sans", sans-serif;
+        }
+        .error {
+          color: red;
         }
       }
     }
