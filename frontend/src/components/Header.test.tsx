@@ -14,17 +14,6 @@ describe("render the Header component", () => {
 
   test("header", () => {
     expect(screen.getByRole("banner")).toBeInTheDocument();
-    //   const { header } = render(<Header />);
-
-    //   const headerElement = header.querySelector("header");
-    // render(<Header />);
-    //   render(<Header />);
-    //   expect(screen.findByTestId("header")).toHaveAttribute("header");
-    //   expect(screen.getByText("Bake it til you make it")).toBeInTheDocument();
-    // expect(screen.("link")).
-    // expect(screen.getByTestI("header", "")).toBeInTheDocument():
-
-    //   expect(headerElement).toBeInTheDocument();
   });
   test("navigation hook to Home", () => {
     const ptag = screen.getByText(/Bake it til you make it/i);
