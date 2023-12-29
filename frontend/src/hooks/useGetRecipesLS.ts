@@ -10,7 +10,7 @@ export const useGetRecipesLS = () => {
 
     if (recipesInLS) {
       axios
-        .get<IRecipe[]>("https://bakeittilyoumakeit.vercel.app/api/v1/recipe")
+        .get<IRecipe[]>("http://localhost:4000/api/v1/recipe")
         .then((response) => {
           const newRecipes = response.data;
           console.log(newRecipes);
@@ -38,7 +38,7 @@ export const useGetRecipesLS = () => {
         });
     } else {
       axios
-        .get<IRecipe[]>("https://bakeittilyoumakeit.vercel.app/api/v1/recipe")
+        .get<IRecipe[]>("http://localhost:4000/api/v1/recipe")
         .then((response) => {
           setRecipes(response.data);
           localStorage.setItem("recipes", JSON.stringify(response.data));
