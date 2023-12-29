@@ -13,8 +13,8 @@ export const getAllRecipes = async () => {
 export const createNewRecipe = async (recipe: FormData): Promise<IRecipe> => {
   console.log(recipe);
   const response = await axios.post<IRecipe>(
-    // "http://localhost:4000/api/v1/recipe",
-    "https://bakeittilyoumakeit.vercel.app/api/v1/recipe",
+    "http://localhost:4000/api/v1/recipe",
+    // "https://bakeittilyoumakeit.vercel.app/api/v1/recipe",
     recipe
   );
 
