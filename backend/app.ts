@@ -25,13 +25,13 @@ app.use(
 
 app.use("/api/v1/recipe", recipeRoutes);
 
-app.use((req, res) => {
-  const isApiPath = req.path.startsWith("/api/");
+// app.use((req, res) => {
+//   const isApiPath = req.path.startsWith("/api/");
 
-  if (isApiPath) return res.sendStatus(404);
+//   if (isApiPath) return res.sendStatus(404);
 
-  return;
-});
+//   return;
+// });
 
 const port = process.env.PORT || 5000;
 const mongoDbUrl = process.env.MONGODB_URI;
