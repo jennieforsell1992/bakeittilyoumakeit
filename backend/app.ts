@@ -44,9 +44,9 @@ async function run() {
     mongoose.set("strictQuery", false);
     const conn = await mongoose.connect(mongoDbUrl || "");
 
-    app.listen(port, () => {
-      console.log(`server running on http://localhost:${port}`);
-    });
+    // app.listen(port, () => {
+    //   console.log(`server running on http://localhost:${port}`);
+    // });
   } catch (error) {
     console.log(error);
   }
