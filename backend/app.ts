@@ -17,12 +17,7 @@ app.use((req, res, next) => {
 
 app.use(
   cors({
-    // origin: "http://localhost:5173",
-    // origin:
-    //   "https://https://bakeittilyoumakeit-h7xv61xg4-jennie-forsells-projects.vercel.app",
-    // origin:
-    //   "https://bakeittilyoumakeit-k8d4g4umu-jennie-forsells-projects.vercel.app",
-    origin: "https://https://bakeittilyoumakeit.vercel.app",
+    origin: "https://bakeittilyoumakeit.vercel.app",
     methods: ["GET", "POST"],
   })
 );
@@ -44,9 +39,9 @@ async function run() {
     mongoose.set("strictQuery", false);
     const conn = await mongoose.connect(mongoDbUrl || "");
 
-    // app.listen(port, () => {
-    //   console.log(`server running on http://localhost:${port}`);
-    // });
+    app.listen(port, () => {
+      console.log(`server running on http://localhost:${port}`);
+    });
   } catch (error) {
     console.log(error);
   }
