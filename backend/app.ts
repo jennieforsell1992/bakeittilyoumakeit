@@ -17,21 +17,22 @@ app.use((req, res, next) => {
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
-    // origin: "https://bakeittilyoumakeit.vercel.app",
+    // origin: "http://localhost:5173",
+    origin:
+      "https://https://bakeittilyoumakeit-h7xv61xg4-jennie-forsells-projects.vercel.app",
     methods: ["GET", "POST"],
   })
 );
 
 app.use("/api/v1/recipe", recipeRoutes);
 
-// app.use((req, res) => {
-//   const isApiPath = req.path.startsWith("/api/");
+app.use((req, res) => {
+  const isApiPath = req.path.startsWith("/api/");
 
-//   if (isApiPath) return res.sendStatus(404);
+  if (isApiPath) return res.sendStatus(404);
 
-//   return;
-// });
+  return;
+});
 
 const port = process.env.PORT || 5000;
 const mongoDbUrl = process.env.MONGODB_URI;
