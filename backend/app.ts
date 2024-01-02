@@ -4,7 +4,6 @@ import express from "express";
 import mongoose from "mongoose";
 import recipeRoutes from "./src/routes/recipeRoutes";
 import cors from "cors";
-import multer from "multer";
 
 const app = express();
 
