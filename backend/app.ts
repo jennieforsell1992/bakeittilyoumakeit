@@ -20,7 +20,9 @@ app.use(
     // origin: "http://localhost:5173",
     // origin:
     //   "https://https://bakeittilyoumakeit-h7xv61xg4-jennie-forsells-projects.vercel.app",
-    origin: "http://https://bakeittilyoumakeit.vercel.app",
+    origin:
+      "https://bakeittilyoumakeit-k8d4g4umu-jennie-forsells-projects.vercel.app",
+    // origin: "http://https://bakeittilyoumakeit.vercel.app",
     methods: ["GET", "POST"],
   })
 );
