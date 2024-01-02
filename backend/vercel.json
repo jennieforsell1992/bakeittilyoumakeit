@@ -8,7 +8,7 @@
     ],
     "routes": [
         {
-            "src": "/api/v1/recipe(.*)",
+            "src": "/(.*)",
             "dest": "/app.ts"
         }
     ]
