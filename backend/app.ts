@@ -39,7 +39,7 @@ app.use((req, res) => {
 
 const port = process.env.PORT || 5000;
 const mongoDbUrl = process.env.MONGODB_URI;
-async function run() {
+export async function run() {
   try {
     mongoose.set("strictQuery", false);
     const conn = await mongoose.connect(mongoDbUrl || "");
