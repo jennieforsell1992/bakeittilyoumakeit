@@ -32,7 +32,7 @@ app.use((req, res) => {
   return;
 });
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 const mongoDbUrl = process.env.MONGODB_URI;
 async function run() {
   try {
