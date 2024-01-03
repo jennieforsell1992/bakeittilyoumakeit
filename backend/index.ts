@@ -50,4 +50,4 @@ async function run() {
 }
 run();
 
-export default run;
+module.exports = app;
