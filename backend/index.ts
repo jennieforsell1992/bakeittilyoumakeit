@@ -34,7 +34,6 @@ app.use((req, res) => {
 
 const port = process.env.PORT || 3000;
 const mongoDbUrl = process.env.MONGODB_URI;
-const url = "https://bakeittilyoumakeit.vercel.app";
 
 async function run() {
   try {
