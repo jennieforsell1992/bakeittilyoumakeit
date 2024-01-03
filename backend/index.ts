@@ -41,8 +41,8 @@ async function run() {
     mongoose.set("strictQuery", false);
     const conn = await mongoose.connect(mongoDbUrl || "");
 
-    app.listen(url, () => {
-      console.log(`server running on ${url}`);
+    app.listen(port, () => {
+      console.log(`server running on ${port}`);
     });
   } catch (error) {
     console.log(error);
