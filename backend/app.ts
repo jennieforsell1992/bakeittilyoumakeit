@@ -34,16 +34,13 @@ app.use((req, res) => {
 
 const port = process.env.PORT || 3000;
 const mongoDbUrl = process.env.MONGODB_URI;
-const url = "https://bakeittilyoumakeit.vercel.app";
+
 async function run() {
   try {
     mongoose.set("strictQuery", false);
     const conn = await mongoose.connect(mongoDbUrl || "");
 
-    // app.listen(port, () => {
-    //   console.log(`server running on http://localhost:${port}`);
-    // });
-    app.listen(url, () => {
+    app.listen(port, () => {
       console.log(`server running on http://localhost:${port}`);
     });
   } catch (error) {
