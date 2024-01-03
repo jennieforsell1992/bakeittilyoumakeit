@@ -15,12 +15,20 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(
-  cors({
-    origin: "https://bakeittilyoumakeit.vercel.app",
-    methods: ["GET", "POST"],
-  })
-);
+// app.use(
+//   cors({
+//     origin: "https://bakeittilyoumakeit.vercel.app",
+//     methods: ["GET", "POST"],
+//   })
+// );
+
+const corsConfig = {
+  origin: "https://bakeittilyoumakeit.vercel.app",
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+};
+app.use(cors(corsConfig));
+app.options("https://bakeittilyoumakeit.vercel.app", cors(corsConfig));
 
 app.use("/api/v1/recipe", recipeRoutes);
 
