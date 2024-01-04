@@ -45,7 +45,7 @@ async function run() {
     const conn = await mongoose.connect(mongoDbUrl || "");
 
     app.listen(port, () => {
-      console.log(`server running on ${port}`);
+      console.log(`server running on http://localhost:${port}`);
     });
   } catch (error) {
     console.log(error);
