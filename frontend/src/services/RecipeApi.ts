@@ -1,6 +1,8 @@
 import axios from "axios";
 import { IRecipe } from "../models/IRecipe";
 
+axios.defaults.withCredentials = true;
+
 export const getAllRecipes = async () => {
   const response = await axios.get<IRecipe[]>(
     "http://localhost:4000/api/v1/recipe"
