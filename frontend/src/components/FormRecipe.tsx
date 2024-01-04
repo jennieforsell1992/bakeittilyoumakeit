@@ -252,6 +252,7 @@ export const FormRecipe = () => {
                     name="imgUrl"
                     accept=".png, .jpg"
                     onChange={(e) => handleImage(e)}
+                    required
                   />
                 </label>
               </div>
