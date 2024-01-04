@@ -5,6 +5,8 @@ import axios from "axios";
 export const useGetRecipesLS = () => {
   const [recipes, setRecipes] = useState<IRecipe[]>([]);
 
+  axios.defaults.withCredentials = true;
+
   useEffect(() => {
     const recipesInLS = localStorage.getItem("recipes");
 
