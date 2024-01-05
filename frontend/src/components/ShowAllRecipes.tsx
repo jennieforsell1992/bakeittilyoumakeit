@@ -3,13 +3,11 @@ import { RecipeContext } from "../contexts/RecipeContext";
 import "../scss/showAllRecipes.scss";
 import { RecipeDispatchContext } from "../contexts/RecipeDispatchContext";
 import { ActionType } from "../reducers/RecipeReducer";
-import { useNavigate } from "react-router-dom";
 import { IoMdHeart } from "react-icons/io";
 
 export const ShowAllRecipes = () => {
   const allRecipes = useContext(RecipeContext);
   const dispatch = useContext(RecipeDispatchContext);
-  const navigate = useNavigate();
 
   console.log(allRecipes);
 
@@ -25,10 +23,6 @@ export const ShowAllRecipes = () => {
     setIsLiked(!isLiked);
 
     console.log(isLiked);
-  };
-
-  const handleClickNavigateToOnePage = (id: string) => {
-    navigate(`/allrecipes/${id}`);
   };
 
   const sortRecipesA = () => {
@@ -75,19 +69,19 @@ export const ShowAllRecipes = () => {
 
   const showAllRecipes = allRecipes.map((res, index) => {
     return (
-      <div
-        onClick={() => {
-          handleClickNavigateToOnePage(res._id);
-        }}
+      <a
+        href={`/allrecipes/${res._id}`}
         className="allRecipe-wrapper"
         key={index}
       >
         <div className="allRecipe-wrapper-img">
           <img className="allRecipe-img" src={res.imgUrl} alt={res.name} />
-          <div
+          <button
             className="icon-wrapper-allRecipes"
             onClick={(e) => {
-              e.stopPropagation(), handleClickHeart(res._id);
+              e.stopPropagation(),
+                e.preventDefault(),
+                handleClickHeart(res._id);
             }}
           >
             <IoMdHeart
@@ -97,13 +91,13 @@ export const ShowAllRecipes = () => {
                   : "material-symbols-outlined"
               }
             />
-          </div>
+          </button>
         </div>
         <div className="allRecipe-wrapper-nameWrapper">
           <p className="allRecipe-name">{res.name}</p>
           <p className="allRecipe-bakingTime">{res.bakingTime}</p>
         </div>
-      </div>
+      </a>
     );
   });
 

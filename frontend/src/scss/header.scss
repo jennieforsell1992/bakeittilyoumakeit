@@ -41,6 +41,20 @@
       margin-right: 0;
     }
 
+    .icon-wrapper-search {
+      cursor: pointer;
+      @include mix.desktop {
+        margin-top: 10px;
+      }
+    }
+
+    .icon-wrapper-heart {
+      cursor: pointer;
+      @include mix.desktop {
+        margin-top: 10px;
+      }
+    }
+
     a {
       text-decoration: none;
     }
