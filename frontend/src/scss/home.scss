@@ -2,7 +2,7 @@
 @use "variables" as var;
 
 .front-picture-wrapper {
-  background: url(../../public/cooking-5880136_640.jpg);
+  background: url("https://res.cloudinary.com/dwzwqnpmn/image/upload/v1704465350/recipe-images/kuq61mjzq7uwggdwjlay.jpg");
   background-size: cover;
 
   background-repeat: no-repeat;
@@ -12,7 +12,7 @@
   align-items: center;
 
   @include mix.desktop {
-    background: url(../../public/cooking-5880136_1280.jpg);
+    background: url("https://res.cloudinary.com/dwzwqnpmn/image/upload/v1704465346/recipe-images/p73vxepd5gbgkfbnwfvv.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 50vh;
@@ -83,34 +83,34 @@
     }
 
     .front-recipe-title {
-      margin-top: -80px;
+      margin-top: -85px;
       position: absolute;
       // font-family: "Lilita One", sans-serif;
       // font-family: "Alfa Slab One", serif;
       // color: white;
       // -webkit-text-stroke: 1px black;
-      right: 75px;
+      right: 60px;
       font-family: "Rethink Sans", sans-serif;
       font-size: 1.2rem;
 
       @include mix.desktop {
         position: none;
-
-        right: 145px;
+        right: 94px;
         font-size: 1.7rem;
       }
     }
     .front-recipe-text-wrapper {
       position: absolute;
       display: wrap;
-      top: 70px;
+      top: 55px;
       left: 130px;
       text-align: center;
+      padding: 10px;
 
       @include mix.desktop {
         position: none;
-        top: 115px;
-        left: 115px;
+        top: 90px;
+        left: 10px;
       }
 
       .front-recipe-text {
@@ -123,10 +123,10 @@
     .front-recipe-button-wrapper {
       position: absolute;
       left: 165px;
-      top: 130px;
+      top: 150px;
       @include mix.desktop {
         top: 180px;
-        left: 170px;
+        left: 140px;
       }
       .front-recipe-button {
         padding: 10px;
