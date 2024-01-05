@@ -59,6 +59,9 @@
   .likedRecipe-wrapper-nameWrapper {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 
     .likedRecipe-name {
       font-family: "Rethink Sans", sans-serif;

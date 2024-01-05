@@ -1,4 +1,11 @@
+import { useNavigate } from "react-router-dom";
+
 export const Home = () => {
+  const navigate = useNavigate();
+  const navigateToRecipe = () => {
+    navigate("/allrecipes/65969c1ad138c6142cab0500");
+  };
+
   return (
     <div>
       <section className="front-picture-wrapper">
@@ -18,7 +25,9 @@ export const Home = () => {
             </span>
           </div>
           <div className="front-recipe-button-wrapper">
-            <button className="front-recipe-button">till receptet</button>
+            <button className="front-recipe-button" onClick={navigateToRecipe}>
+              till receptet
+            </button>
           </div>
         </div>
         <div className="front-recipe-container">
