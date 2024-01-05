@@ -56,7 +56,6 @@ $hamburger-bar-height: 4px;
     }
   }
 
-  /* Animerad effekt när hamburgerikonen klickas på */
   &.open {
     .bar:nth-child(1) {
       transform: rotate(-45deg) translate(-13px, 6px);
