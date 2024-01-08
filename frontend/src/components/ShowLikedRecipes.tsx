@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { IRecipe } from "../models/IRecipe";
 import { RecipeContext } from "../contexts/RecipeContext";
 import { useGetRecipesLS } from "../hooks/useGetRecipesLS";
-import { useNavigate } from "react-router-dom";
 import { ActionType } from "../reducers/RecipeReducer";
 import { RecipeDispatchContext } from "../contexts/RecipeDispatchContext";
 import { RxCross2 } from "react-icons/rx";
@@ -10,7 +9,6 @@ import { RxCross2 } from "react-icons/rx";
 export const ShowLikedRecipes = () => {
   const recipes = useContext(RecipeContext);
   const dispatch = useContext(RecipeDispatchContext);
-  const navigate = useNavigate();
 
   console.log(recipes);
 
@@ -25,11 +23,7 @@ export const ShowLikedRecipes = () => {
   }, [getDataFromLs, recipeFromLS]);
   console.log(recipeFromLS);
 
-  const handleClickNavigateToOnePage = (id: string) => {
-    navigate(`/allrecipes/${id}`);
-  };
-
-  const handleClickHeartLiked = (id: string, i: number) => {
+  const removeLikedRecipe = (id: string, i: number) => {
     dispatch({
       type: ActionType.TOGGLEHEART,
       payload: id,
@@ -41,34 +35,35 @@ export const ShowLikedRecipes = () => {
   };
 
   const newList = recipeFromLS.map((rec, index) => {
-    if (rec.likedRecipe === true) {
+    if (rec.likedRecipe === true)
       return (
-        <article
-          onClick={() => {
-            handleClickNavigateToOnePage(rec._id);
-          }}
+        <a
+          href={`/allrecipes/${rec._id}`}
           className="likedRecipe-wrapper"
           key={index}
         >
           <div className="likedRecipe-wrapper-img">
             <img className="likedRecipe-img" src={rec.imgUrl} alt={rec.name} />
-            <div
+            <button
               className="icon-wrapper-likedRecipe"
               onClick={(e) => {
-                e.stopPropagation(), handleClickHeartLiked(rec._id, index);
+                e.stopPropagation(),
+                  e.preventDefault(),
+                  removeLikedRecipe(rec._id, index);
               }}
             >
               <RxCross2 className="material-symbols-outlined" />
-            </div>
+            </button>
           </div>
           <div className="likedRecipe-wrapper-nameWrapper">
             <p className="likedRecipe-name">{rec.name}</p>
             <p className="likedRecipe-bakingTime">{rec.bakingTime}</p>
           </div>
-        </article>
+        </a>
       );
-    }
   });
+
+  console.log(newList.length);
 
   return (
     <>
