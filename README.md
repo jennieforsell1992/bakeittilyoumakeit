@@ -1,6 +1,7 @@
 
 # Description
 This is a responsive website for mobile and desktop.
+It's a recipe-website for baking.
 Users can see all the recipes, search for a recipe,
 like a recipe and add recipes to the website.
 
