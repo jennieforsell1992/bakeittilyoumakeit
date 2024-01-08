@@ -39,10 +39,11 @@ export const ShowSearchRecipe = () => {
 
   return (
     <div className="searchRecipe">
-      <div className="search-recipe-title">
-        <h3 className="search-text-title">sök på ditt favorit-recept</h3>{" "}
-        <IoIosSearch className="search-icon" />
-      </div>
+      <article className="search-recipe-title-wrapper">
+        <div className="search-recipe-title">
+          <h3 className="search-text-title">sök på ditt favorit-recept</h3>
+        </div>
+      </article>
 
       <div className="search-recipe-input">
         <input
@@ -50,7 +51,7 @@ export const ShowSearchRecipe = () => {
           type="text"
           onChange={handleSearch}
           value={searchRecipes}
-          placeholder="skriv ditt sökord här"
+          placeholder="skriv ditt sökord här🔎...."
         />
       </div>
       {searchRecipes !== "" && (
