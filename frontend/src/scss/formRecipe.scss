@@ -13,28 +13,35 @@
     font-family: "Rethink Sans", sans-serif;
   }
 
-  .title-form-wrapper {
-    padding: 20px;
-    gap: 10px;
-    border: dashed 10px var.$secondary-color;
-    border-radius: 20px;
-    .create-new-recipe-title {
-      font-size: 1.4rem;
-      font-family: "Rethink Sans", sans-serif;
-    }
-    .candy-icon {
-      font-size: 1.4rem;
-    }
-    .cookie-icon {
-      font-size: 1.4rem;
-    }
-  }
-
-  .title-form-wrapper {
+  .title-create-new-recipe {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var.$secondary-color;
+    border-radius: 5px;
+    .title-form-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      gap: 10px;
+
+      border: dashed 3px var.$box-color;
+
+      margin: 20px;
+      .create-new-recipe-title {
+        font-size: 1.4rem;
+        font-family: "Rethink Sans", sans-serif;
+      }
+      .candy-icon {
+        font-size: 1.4rem;
+      }
+      .cookie-icon {
+        font-size: 1.4rem;
+      }
+    }
   }
+
   .form-wrapper {
     display: flex;
     flex-direction: column;
@@ -100,6 +107,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: row;
         gap: 200px;
       }
       .wrapper-ingredients {
@@ -110,7 +118,7 @@
         gap: 10px;
         margin-bottom: 20px;
         @include mix.desktop {
-          margin-top: -186px;
+          margin-top: -170px;
         }
 
         .wrapper-ingredients-title {
