@@ -232,10 +232,12 @@ export const FormRecipe = () => {
     <div>
       {!showThankYouForRecipe ? (
         <div className="wrapper-form-title">
-          <div className="title-form-wrapper">
-            <MdOutlineCookie className="cookie-icon" />
-            <h3 className="create-new-recipe-title">Skapa nytt recept</h3>
-            <LuCandy className="candy-icon" />
+          <div className="title-create-new-recipe">
+            <div className="title-form-wrapper">
+              <MdOutlineCookie className="cookie-icon" />
+              <h3 className="create-new-recipe-title">Skapa nytt recept</h3>
+              <LuCandy className="candy-icon" />
+            </div>
           </div>
           <form
             onSubmit={handleSubmitRecipe}
