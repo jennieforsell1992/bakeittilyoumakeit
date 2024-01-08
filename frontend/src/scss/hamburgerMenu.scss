@@ -17,6 +17,7 @@ $hamburger-bar-height: 4px;
 
     .bar {
       width: 100%;
+      border-radius: 2px;
       height: $hamburger-bar-height;
       background-color: $hamburger-color;
       transition: 0.3s;
