@@ -8,17 +8,22 @@
   align-items: center;
   gap: 20px;
 
-  .search-recipe-title {
-    margin-top: 10px;
-    display: flex;
-    gap: 20px;
-    border: dashed 15px var.$secondary-color;
+  .search-recipe-title-wrapper {
+    background-color: var.$secondary-color;
+    margin-top: 20px;
     padding: 20px;
-    .search-text-title {
-      font-family: "Rethink Sans", sans-serif;
-    }
-    .search-icon {
-      font-size: 25px;
+
+    .search-recipe-title {
+      display: flex;
+      gap: 20px;
+      border: dashed 4px var.$box-color;
+      padding: 20px;
+      .search-text-title {
+        font-family: "Rethink Sans", sans-serif;
+      }
+      .search-icon {
+        font-size: 25px;
+      }
     }
   }
 
