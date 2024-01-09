@@ -248,6 +248,7 @@ export const FormRecipe = () => {
               <div className="wrapper-image-title-icon">
                 <IoIosCamera className="camera" />
                 <label className="wrapper-image-input">
+                  Välj bild
                   <input
                     className="image-input"
                     type="file"
