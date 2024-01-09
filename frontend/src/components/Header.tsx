@@ -14,7 +14,7 @@ export const Header = () => {
   return (
     <header className="header">
       <div className="logo-wrapper" onClick={navigateToHome}>
-        <p className="logo">Bake it til you make it</p>
+        <label className="logo">Bake it til you make it</label>
       </div>
       <div className="header-wrapper">
         <a className="icon-wrapper-search" href={"/searchrecipe"}>

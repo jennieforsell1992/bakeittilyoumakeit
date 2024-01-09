@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { RecipeDispatchContext } from "../contexts/RecipeDispatchContext";
 import { ActionType } from "../reducers/RecipeReducer";
 import { IoMdHeart } from "react-icons/io";
-import { IoIosSearch } from "react-icons/io";
 
 export const ShowSearchRecipe = () => {
   const recipes = useContext(RecipeContext);
