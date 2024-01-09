@@ -1,6 +1,5 @@
 import { ChangeEvent, useContext, useState } from "react";
 import { RecipeContext } from "../contexts/RecipeContext";
-import { useNavigate } from "react-router-dom";
 import { RecipeDispatchContext } from "../contexts/RecipeDispatchContext";
 import { ActionType } from "../reducers/RecipeReducer";
 import { IoMdHeart } from "react-icons/io";
@@ -8,14 +7,10 @@ import { IoMdHeart } from "react-icons/io";
 export const ShowSearchRecipe = () => {
   const recipes = useContext(RecipeContext);
   const dispatch = useContext(RecipeDispatchContext);
-  const navigate = useNavigate();
+
   const [searchRecipes, setSearchRecipes] = useState("");
 
   console.log(recipes);
-
-  const handleNavigateToOneRecipe = (id: string) => {
-    navigate(`/allrecipes/${id}`);
-  };
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -56,10 +51,8 @@ export const ShowSearchRecipe = () => {
       {searchRecipes !== "" && (
         <div className="searchRecipe-container">
           {filteredRecipes.map((rec, index) => (
-            <div
-              onClick={() => {
-                handleNavigateToOneRecipe(rec._id);
-              }}
+            <a
+              href={`/allrecipes/${rec._id}`}
               className="searchRecipe-wrapper"
               key={index}
             >
@@ -69,10 +62,12 @@ export const ShowSearchRecipe = () => {
                   src={rec.imgUrl}
                   alt={rec.name}
                 />
-                <div
+                <button
                   className="icon-wrapper-searchRecipe"
                   onClick={(e) => {
-                    e.stopPropagation(), handleClickHeartSearch(rec._id);
+                    e.stopPropagation(),
+                      e.preventDefault(),
+                      handleClickHeartSearch(rec._id);
                   }}
                 >
                   <IoMdHeart
@@ -82,13 +77,13 @@ export const ShowSearchRecipe = () => {
                         : "material-symbols-outlined"
                     }
                   />
-                </div>
+                </button>
               </div>
               <div className="searchRecipe-wrapper-nameWrapper">
                 <p className="searchRecipe-name">{rec.name}</p>
                 <p className="searchRecipe-bakingTime">{rec.bakingTime}</p>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       )}
