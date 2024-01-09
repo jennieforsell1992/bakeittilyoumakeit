@@ -15,7 +15,7 @@
 
   .footer-logo-wrapper {
     .footer-logo {
-      color: white;
+      color: #242424;
       font-family: "Zeyada", cursive;
       font-size: 1.5rem;
       font-weight: bold;
@@ -30,7 +30,7 @@
     flex-direction: column;
     text-align: left;
     padding: 10px;
-    color: white;
+    color: #242424;
     @include mix.desktop {
       font-size: 1.1rem;
     }
@@ -58,7 +58,7 @@
     .contact-text {
       margin: 4px 0;
       font-size: x-small;
-      color: white;
+      color: #242424;
       @include mix.desktop {
         font-size: 1rem;
       }
