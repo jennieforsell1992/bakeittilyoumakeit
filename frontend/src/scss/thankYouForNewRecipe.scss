@@ -4,21 +4,27 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
 
   .thankyou-wrapper {
     margin-top: 40px;
     background-color: var.$secondary-color;
-    border: dashed 40px white;
+
     padding: 30px;
     text-align: center;
     gap: 20px;
-    .cupcake {
-      margin-top: 10px;
-      font-size: 1.5rem;
-    }
-    .cake {
-      margin-top: 10px;
-      font-size: 1.5rem;
+    margin-bottom: 20px;
+    .thankyou-border {
+      border: dashed 5px white;
+      padding: 20px;
+      .cupcake {
+        margin-top: 10px;
+        font-size: 1.5rem;
+      }
+      .cake {
+        margin-top: 10px;
+        font-size: 1.5rem;
+      }
     }
   }
 }
