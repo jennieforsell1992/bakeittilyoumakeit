@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 export const Home = () => {
   const navigate = useNavigate();
   const navigateToRecipe = () => {
-    navigate("/allrecipes/65969c1ad138c6142cab0500");
+    navigate("/allrecipes/659eb8b048d674edac0dcd77");
   };
 
   return (
@@ -33,7 +33,7 @@ export const Home = () => {
         <div className="front-recipe-container">
           <img
             className="front-recipe-img"
-            src="https://res.cloudinary.com/dwzwqnpmn/image/upload/v1704369177/recipe-images/758dc96e-5c5c-48e7-9c0c-158eeb282ca9.jpg"
+            src="https://res.cloudinary.com/dwzwqnpmn/image/upload/v1704900783/recipe-images/4cc4619b-fb86-4acb-9528-36949ae9b63d.jpg"
             alt="bild på kaka"
           />
         </div>
