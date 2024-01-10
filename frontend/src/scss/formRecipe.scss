@@ -74,19 +74,18 @@
           font-size: 50px;
         }
         .wrapper-image-input {
-          border: 2px solid black;
-          border-radius: 5px;
-          padding: 5px;
-          background-color: var.$secondary-color;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-
           input[type="file"] {
             font-family: "Rethink Sans", sans-serif;
           }
           .image-input {
             align-self: center;
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 5px;
+            background-color: var.$secondary-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
         }
       }

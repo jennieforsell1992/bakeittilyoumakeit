@@ -75,11 +75,7 @@ export const ShowAllRecipes = () => {
         key={index}
       >
         <div className="allRecipe-wrapper-img">
-          <img
-            className="allRecipe-img"
-            src={res.imgUrl}
-            alt={`bild på ${res.name}`}
-          />
+          <img className="allRecipe-img" src={res.imgUrl} alt={res.name} />
           <button
             className="icon-wrapper-allRecipes"
             onClick={(e) => {
