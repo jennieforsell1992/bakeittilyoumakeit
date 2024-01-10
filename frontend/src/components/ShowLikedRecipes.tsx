@@ -5,6 +5,7 @@ import { useGetRecipesLS } from "../hooks/useGetRecipesLS";
 import { ActionType } from "../reducers/RecipeReducer";
 import { RecipeDispatchContext } from "../contexts/RecipeDispatchContext";
 import { RxCross2 } from "react-icons/rx";
+import { IoMdHeart } from "react-icons/io";
 
 export const ShowLikedRecipes = () => {
   const recipes = useContext(RecipeContext);
@@ -67,6 +68,16 @@ export const ShowLikedRecipes = () => {
 
   return (
     <>
+      <section className="liked-title">
+        <div className="liked-wrapper-title">
+          <div className="liked-border">
+            <h3>
+              Alla dina gillade recept!
+              <IoMdHeart className="heart-icon-liked" />
+            </h3>
+          </div>
+        </div>
+      </section>
       <div className="likedRecipe-container">{newList}</div>
     </>
   );

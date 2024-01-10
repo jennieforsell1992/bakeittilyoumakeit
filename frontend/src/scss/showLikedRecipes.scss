@@ -1,6 +1,24 @@
 @use "mixins" as mix;
 @use "variables" as var;
 
+.liked-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .liked-wrapper-title {
+    margin-top: 20px;
+    background-color: var.$secondary-color;
+    padding: 30px;
+    .liked-border {
+      border: dashed 3px var.$box-color;
+      padding: 20px;
+      .heart-icon-liked {
+        color: var.$heart-color;
+      }
+    }
+  }
+}
 .likedRecipe-container {
   display: flex;
   justify-content: center;
