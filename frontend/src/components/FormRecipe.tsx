@@ -293,7 +293,7 @@ export const FormRecipe = () => {
                     skriv in varje ingrediens i de olika fälten och de olika
                     måten
                   </h3>
-                  <p>t.ex 1dl mjölk, 1tsk bakpulver</p>
+                  <p>t.ex 1 dl mjölk, 1 tsk bakpulver</p>
                 </div>
                 {/*Ingredients*/}
                 <label>ingrediens 1</label>
