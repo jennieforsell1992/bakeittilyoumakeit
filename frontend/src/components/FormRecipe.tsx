@@ -303,6 +303,7 @@ export const FormRecipe = () => {
                   name="IngredientOne"
                   value={newRecipe.allIngredients.IngredientOne}
                   onChange={handleChangeRecipeIngredients}
+                  data-testid="ingredientOne"
                   required
                 />
                 {showFirstIngredient && errors.inputRequired && (
@@ -315,6 +316,7 @@ export const FormRecipe = () => {
                   name="IngredientTwo"
                   value={newRecipe.allIngredients.IngredientTwo}
                   onChange={handleChangeRecipeIngredients}
+                  data-testid="ingredientTwo"
                   required
                 />
                 {showSecondIngredient && errors.inputRequired && (
@@ -431,6 +433,7 @@ export const FormRecipe = () => {
                   name="descriptionOne"
                   value={newRecipe.description.descriptionOne}
                   onChange={handleChangeRecipeDescription}
+                  data-testid="stepOne"
                   required
                 />
                 {showFirstDescription && errors.inputRequired && (
@@ -443,6 +446,7 @@ export const FormRecipe = () => {
                   name="descriptionTwo"
                   value={newRecipe.description.descriptionTwo}
                   onChange={handleChangeRecipeDescription}
+                  data-testid="stepTwo"
                   required
                 />
                 {showSecondDescription && errors.inputRequired && (
@@ -564,7 +568,11 @@ export const FormRecipe = () => {
               </section>
             </div>
             <div className="form-submit-button-wrapper">
-              <button type="submit" className="submit-button">
+              <button
+                type="submit"
+                className="submit-button"
+                data-testid="submit-button"
+              >
                 Lägg till recept
               </button>
             </div>
