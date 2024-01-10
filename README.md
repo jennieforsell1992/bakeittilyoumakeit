@@ -37,3 +37,7 @@ and then
 ```bash
   npm run dev
 ```
+4. if you want to run tests, make sure you're in the frontend-folder and run this command in terminal:
+```bash
+npm run test
+```
