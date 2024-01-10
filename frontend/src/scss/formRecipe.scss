@@ -74,12 +74,20 @@
           font-size: 50px;
         }
         .wrapper-image-input {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+
           input[type="file"] {
             font-family: "Rethink Sans", sans-serif;
+            display: flex;
+            align-self: center;
           }
           .image-input {
             align-self: center;
-            border: 2px solid black;
+
             border-radius: 5px;
             padding: 5px;
             background-color: var.$secondary-color;
@@ -167,6 +175,7 @@
       justify-content: center;
       align-items: center;
       @include mix.desktop {
+        width: 100vw;
         margin-bottom: 20px;
       }
 
@@ -176,6 +185,7 @@
         @include mix.desktop {
           font-size: 1rem;
           padding: 30px;
+          margin-left: 767px;
         }
       }
     }
