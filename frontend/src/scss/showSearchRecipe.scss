@@ -104,6 +104,8 @@
       .searchRecipe-wrapper-nameWrapper {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         .searchRecipe-name {
           font-family: "Rethink Sans", sans-serif;
