@@ -459,7 +459,6 @@ export const FormRecipe = () => {
                   name="descriptionThree"
                   value={newRecipe.description.descriptionThree}
                   onChange={handleChangeRecipeDescription}
-                  required
                 />
                 <label>Steg 4</label>
                 <input

@@ -34,21 +34,12 @@
       padding: 50px;
     }
     .title-wrapper-text {
-      // font-family: "Alfa Slab One", serif;
       font-weight: bolder;
-      // color: white;
-      // -webkit-text-stroke: 1px black;
       font-family: "Rethink Sans", sans-serif;
       font-size: 1.2rem;
       color: #242424;
       @include mix.desktop {
         font-size: 1.5rem;
-
-        // font-size: 1.7rem;
-        // font-family: "Lilita One", sans-serif;
-        // font-family: "Alfa Slab One", serif;
-        // color: white;
-        // -webkit-text-stroke: 1px black;
       }
     }
   }
@@ -56,12 +47,10 @@
 
 .front-recipe-wrapper {
   height: 30vh;
-  // margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // gap: 10px;
   margin-bottom: 20px;
 
   @include mix.desktop {
@@ -157,7 +146,6 @@
     margin-right: 170px;
 
     @include mix.desktop {
-      // margin-top: 180px;
       position: none;
       margin-right: 500px;
       margin-top: 0;
