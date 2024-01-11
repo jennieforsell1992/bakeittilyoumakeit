@@ -14,9 +14,6 @@ function App() {
 
   useEffect(() => {
     const getData = () => {
-      // const getAllDataFromApi = await getAllRecipes();
-      // console.log(getAllDataFromApi);
-
       dispatch({
         type: ActionType.GOTALLRECIPES,
         payload: JSON.stringify(getDataFromLS),

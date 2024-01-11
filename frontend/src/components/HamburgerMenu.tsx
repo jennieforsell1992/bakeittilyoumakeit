@@ -1,24 +1,11 @@
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
 
 export const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
-  // const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
-  // const navigateToAllRecipes = () => {
-  //   navigate("/allrecipes");
-  // };
-  // const navigateToCreateRecipe = () => {
-  //   navigate("/createnewrecipe");
-  // };
-
-  // const navigateToHome = () => {
-  //   navigate("/");
-  // };
 
   return (
     <div className={`hamburger-menu ${isOpen ? "open" : ""}`}>
